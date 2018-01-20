@@ -45,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BA56802C20157B79004AC16E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		BA56802D20157E19004AC16E /* Geotum.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Geotum.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		"Geotum::Geotum::Product" /* Geotum.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Geotum.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Geotum::GeotumTests::Product" /* GeotumTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = GeotumTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_12 /* GeotumTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeotumTests.swift; sourceTree = "<group>"; };
@@ -97,15 +99,16 @@
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
+				BA56802D20157E19004AC16E /* Geotum.podspec */,
+				BA56802C20157B79004AC16E /* README.md */,
 				OBJ_6 /* Package.swift */,
 				OBJ_7 /* Sources */,
 				OBJ_10 /* Tests */,
 				OBJ_13 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
@@ -190,7 +193,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_13 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";

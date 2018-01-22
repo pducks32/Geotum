@@ -27,8 +27,8 @@ s.author           = { 'Patrick Metcalfe' => 'git@patrickmetcalfe.com' }
 s.source           = { :git => 'https://github.com/pducks32/Geotum.git', :tag => s.version.to_s }
 s.social_media_url = 'https://twitter.com/pducks32'
 
-s.ios.deployment_target = '8.0'
-s.osx.deployment_target = '10.11'
+s.ios.deployment_target = '10.0'
+s.osx.deployment_target = '10.12'
 
 s.source_files = 'Sources/Geotum/**/*'
 end

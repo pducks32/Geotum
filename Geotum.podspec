@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
 s.name             = 'Geotum'
-s.version          = '1.0.0'
+s.version          = '1.0.1'
 s.summary          = 'Convert to/from UTM points for iOS and macOS'
 
 # This description is used to generate tags and improve search results.

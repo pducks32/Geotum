@@ -31,6 +31,13 @@ public struct UTMPoint {
     public var zone : UInt
     public var hemisphere : Hemisphere
     
+    public init(easting : Double, northing : Double, zone : UInt, hemisphere : Hemisphere) {
+        self.easting = easting
+        self.northing = northing
+        self.zone = zone
+        self.hemisphere = hemisphere
+    }
+    
     public static func -(lhs : UTMPoint, rhs : UTMPoint) -> UTMDistance {
         return UTMDistance(easting: lhs.easting - rhs.easting, northing: lhs.northing - rhs.northing)
     }

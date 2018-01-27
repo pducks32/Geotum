@@ -20,7 +20,7 @@ class GeotumTests: XCTestCase {
     var baseLatLonError = Measurement<UnitAngle>(value: 1, unit: .degrees)
     var baseUTMError = Measurement<UnitLength>(value: 1, unit: .meters)
     
-    func conductTestBetween(coordinatePair : (Double, Double), utm : (Double, Double, UInt, UTMPoint.Hemisphere), file : StaticString = #file, line : UInt = #line) {
+    func conductTestBetween(coordinatePair : (Double, Double), toUTM utm : (Double, Double, UInt, UTMPoint.Hemisphere), file : StaticString = #file, line : UInt = #line) {
         let latLonCoordinate = LatLonCoordinate(latiudinalDegrees: coordinatePair.0, longitudinalDegrees: coordinatePair.1)
         
         let actualUTMCoordinate = UTMConverter(datum: .wgs84).utmCoordinatesFrom(coordinates: latLonCoordinate)
@@ -29,18 +29,31 @@ class GeotumTests: XCTestCase {
         AssertUTMDistanceIsWithinRange(expectedUTMCoordinate, actualUTMCoordinate, within: baseUTMError, file: file, line: line)
     }
     
+    func conductTestBetween(utm : (Double, Double, UInt, UTMPoint.Hemisphere), toCoordinatePair coordinatePair : (Double, Double), file : StaticString = #file, line : UInt = #line) {
+        let expectedLatLonCoordinate = LatLonCoordinate(latiudinalDegrees: coordinatePair.0, longitudinalDegrees: coordinatePair.1)
+        let utmCoordinate = UTMPoint(easting: utm.0, northing: utm.1, zone: utm.2, hemisphere: utm.3)
+        
+        let actualLatLonCoordinate = UTMConverter(datum: .wgs84).coordinateFrom(utm: utmCoordinate)
+        
+        AssertLatLonDistanceIsWithinRange(expectedLatLonCoordinate, actualLatLonCoordinate, within: baseLatLonError, file: file, line: line)
+    }
+    
     // Test in another hemisphere and zone
-    func testLatLonToUTMInDuran_SouthWestern() {
-        conductTestBetween(coordinatePair: (-2.154994, -79.838766), utm: (629134.4, 9761758.1, 17, .southern))
+    func testConversionInDuran_SouthWestern() {
+        conductTestBetween(coordinatePair: (-2.154994, -79.838766), toUTM: (629134.4, 9761758.1, 17, .southern))
+        conductTestBetween(utm: (629134.4, 9761758.1, 17, .southern), toCoordinatePair: (-2.154994, -79.838766))
     }
-    func testLatLonToUTMInMontserrado_NorthWestern() {
-        conductTestBetween(coordinatePair: (6.451436, -10.354367), utm: (350227.2, 713306.6, 29, .northern))
+    func testConversionInMontserrado_NorthWestern() {
+        conductTestBetween(coordinatePair: (6.451436, -10.354367), toUTM: (350227.2, 713306.6, 29, .northern))
+        conductTestBetween(utm: (350227.2, 713306.6, 29, .northern), toCoordinatePair: (6.451436, -10.354367))
     }
-    func testLatLonToUTMInSouthTamworth_SouthEastern() {
-        conductTestBetween(coordinatePair: (-31.111072, 150.906144), utm: (300319, 6556202.6, 56, .southern))
+    func testConversionInSouthTamworth_SouthEastern() {
+        conductTestBetween(coordinatePair: (-31.111072, 150.906144), toUTM: (300319, 6556202.6, 56, .southern))
+        conductTestBetween(utm: (300319, 6556202.6, 56, .southern), toCoordinatePair: (-31.111072, 150.906144))
     }
-    func testLatLonToUTMInOkinawa_SouthEastern() {
-        conductTestBetween(coordinatePair: (26.810878, 128.312261), utm: (431651.1, 2965673.6, 52, .northern))
+    func testConversionInOkinawa_SouthEastern() {
+        conductTestBetween(coordinatePair: (26.810878, 128.312261), toUTM: (431651.1, 2965673.6, 52, .northern))
+        conductTestBetween(utm: (431651.1, 2965673.6, 52, .northern), toCoordinatePair: (26.810878, 128.312261))
     }
     
     // Test in norway

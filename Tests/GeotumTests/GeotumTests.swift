@@ -57,9 +57,13 @@ class GeotumTests: XCTestCase {
     }
     
     // Test in norway
+    
     // Test near equator
+    func testConversionSouthOfEquator() {
+        conductTestBetween(coordinatePair: (-0.000053, -77.341218), toUTM: (239408, 9999994.1, 18, .southern))
+        conductTestBetween(utm: (239408, 9999994.1, 18, .southern), toCoordinatePair: (-0.000053, -77.341218))
+    }
     // Test near poles
-    // Reversability
     
     func testLatLonToUTM() {
         let latitude = 37.0837

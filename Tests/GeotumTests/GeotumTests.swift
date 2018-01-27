@@ -58,6 +58,15 @@ class GeotumTests: XCTestCase {
     }
     
     // Test in norway
+    func testEdgeOfNorwaysIsIn32() {
+        let coordinatePair : (Double, Double) = (1.23, 4.56)
+        
+        let actualZone = UTMConverter(datum: .wgs84).utmCoordinatesFrom(coordinates: LatLonCoordinate(latiudinalDegrees: coordinatePair.0, longitudinalDegrees: coordinatePair.1)).zone
+        XCTAssertEqual(actualZone, 32)
+    }
+    func testConversionAtEdgeOfNorways() {
+        conductTestBetween(utm: (431651.1, 2965673.6, 52, .northern), coordinatePair: (26.810878, 128.312261))
+    }
     
     // Test near equator
     func testConversionSouthOfEquator() {

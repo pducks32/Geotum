@@ -112,6 +112,7 @@ struct KrugerForms {
     let n6 : Double
     
     let α : [Double]
+    let β : [Double]
     
     let flattenedMeridianRadius : Double
     
@@ -132,6 +133,14 @@ struct KrugerForms {
         let α5 = 34729/80640*n5 - 3418889/1995840*n6
         let α6 = 212378941/319334400*n6
         α = [α1, α2, α3, α4, α5, α6]
+        
+        let β1 = 1/2*n1 - 2/3*n2 + 37/96*n3 - 1/360*n4 - 81/512*n5 + 96199/604800*n6
+        let β2 = 1/48*n2 + 1/15*n3 - 437/1440*n4 + 46/105*n5 - 1118711/3870720*n6
+        let β3 = 17/480*n3 - 37/840*n4 - 209/4480*n5 + 5569/90720*n6
+        let β4 = 4397/161280*n4 - 11/504*n5 - 830251/7257600*n6
+        let β5 = 4583/161280*n5 - 108847/3991680*n6
+        let β6 = 20648693/638668800*n6
+        β = [β1, β2, β3, β4, β5, β6]
         
         let flatteningCoefficient = 1 + n2/4 + n4/64 + n6/256
         flattenedMeridianRadius = flatteningCoefficient * datum.equatorialRadius / (1 + thirdFlattening)
@@ -244,183 +253,51 @@ public class UTMConverter {
     }
     
     public func coordinateFrom(utm : UTMPoint) -> LatLonCoordinate {
-        let x = (utm.easting - 500000.0) / 0.9996
+        let falseEasting = 500e3
+        let falseNorthing = 10000e3
+        let scaleFactor = 0.9996
+        let krüger = KrugerForms(datum: datum)
+        
+        let x = utm.easting - falseEasting
         var y = utm.northing
-        
-        if utm.hemisphere == .southern {
-            y -= 10000000.0
-        }
-        y /= 0.9996
-        
-        let tmCoordinate = UTMPoint(easting: x, northing: y, zone: utm.zone, hemisphere: utm.hemisphere)
-        
-        return self.latlonCoordinateFrom(tmCoordinate: tmCoordinate)
-    }
-    
-    private func latlonCoordinateFrom(tmCoordinate : UTMPoint) -> LatLonCoordinate {
-        let x = tmCoordinate.easting;
-        
-        let centralMeridian = self.centralMeridian(for: tmCoordinate.zone).converted(to: .radians).value
-        
-        let equitorialRadus = datum.equatorialRadius;
-        let polarRadius = datum.polarRadius;
-        
-        /* Get the value of phif, the footpoint latitude. */
-        let phif = footprintLatitude(forNorthing: Measurement(value: tmCoordinate.northing, unit: .meters)).converted(to: .radians).value
-        
-        /* Precalculate ep2 */
-        let ep2 = (pow(equitorialRadus, 2.0) - pow(polarRadius, 2.0)) / pow(polarRadius, 2.0);
-        
-        /* Precalculate cos (phif) */
-        let cf = cos(phif);
-        
-        /* Precalculate nuf2 */
-        let nuf2 = ep2 * pow(cf, 2.0);
-        
-        /* Precalculate Nf and initialize Nfpow */
-        let Nf = pow(equitorialRadus, 2.0) / (polarRadius * sqrt(1 + nuf2));
-        var Nfpow = Nf;
-        
-        /* Precalculate tf */
-        let tf = tan(phif);
-        let tf2 = tf * tf;
-        let tf4 = tf2 * tf2;
-        
-        /* Precalculate fractional coefficients for x**n in the equations
-         below to simplify the expressions for latitude and longitude. */
-        let x1frac = 1.0 / (Nfpow * cf);
-        
-        Nfpow *= Nf;   /* now equals Nf**2) */
-        let x2frac = tf / (2.0 * Nfpow);
-        
-        Nfpow *= Nf   /* now equals Nf**3) */
-        let x3frac = 1.0 / (6.0 * Nfpow * cf);
-        
-        Nfpow *= Nf   /* now equals Nf**4) */
-        let x4frac = tf / (24.0 * Nfpow);
-        
-        Nfpow *= Nf   /* now equals Nf**5) */
-        let x5frac = 1.0 / (120.0 * Nfpow * cf);
-        
-        Nfpow *= Nf   /* now equals Nf**6) */
-        let x6frac = tf / (720.0 * Nfpow);
-        
-        Nfpow *= Nf   /* now equals Nf**7) */
-        let x7frac = 1.0 / (5040.0 * Nfpow * cf);
-        
-        Nfpow *= Nf   /* now equals Nf**8) */
-        let x8frac = tf / (40320.0 * Nfpow)
-        
-        /* Precalculate polynomial coefficients for x**n.
-         -- x**1 does not have a polynomial coefficient. */
-        let x2poly = -1.0 - nuf2
-        let x3poly = -1.0 - 2 * tf2 - nuf2
-        let x4poly = 5.0 + 3.0 * tf2 + 6.0 * nuf2 - 6.0 * tf2 * nuf2 - 3.0 * (nuf2 * nuf2) - 9.0 * tf2 * (nuf2 * nuf2)
-        let x5poly = 5.0 + 28.0 * tf2 + 24.0 * tf4 + 6.0 * nuf2 + 8.0 * tf2 * nuf2
-        let x6poly = -61.0 - 90.0 * tf2 - 45.0 * tf4 - 107.0 * nuf2 + 162.0 * tf2 * nuf2
-        let x7poly = -61.0 - 662.0 * tf2 - 1320.0 * tf4 - 720.0 * (tf4 * tf2)
-        let x8poly = 1385.0 + 3633.0 * tf2 + 4095.0 * tf4 + 1575 * (tf4 * tf2)
-        
-        /* Calculate latitude */
-        let latitude = phif + x2frac * x2poly * (x * x) + x4frac * x4poly * pow(x, 4.0) + x6frac * x6poly * pow(x, 6.0) + x8frac * x8poly * pow(x, 8.0)
-        
-        /* Calculate longitude */
-        let longitude = centralMeridian + x1frac * x + x3frac * x3poly * pow(x, 3.0) + x5frac * x5poly * pow(x, 5.0) + x7frac * x7poly * pow(x, 7.0)
-        
-        return LatLonCoordinate(latitude: Measurement<UnitAngle>(value: latitude, unit: .radians), longitude: Measurement<UnitAngle>(value: longitude, unit: .radians))
-    }
-    
-    private func tmCoordinatesFrom(coordinates: LatLonCoordinate) -> UTMPoint {
-        let zone = floor((coordinates.longitude.converted(to: .degrees).value + 180.0) / 6) + 1
-        let meridian = centralMeridian(for: UInt(zone)).converted(to: .radians).value
-        let hemisphere : UTMPoint.Hemisphere
-        if coordinates.latitude.value < 0 {
-            hemisphere = .northern
-        } else {
-            hemisphere = .southern
+        if (utm.hemisphere == .southern) {
+            y -= falseNorthing
         }
         
-        let latitudeInRadians = coordinates.latitude.converted(to: .radians).value
-        let longitudeInRadians = coordinates.longitude.converted(to: .radians).value
+        let η = x / (scaleFactor * krüger.flattenedMeridianRadius);
+        let ξ = y / (scaleFactor * krüger.flattenedMeridianRadius);
         
-        /* Precalculate ep2 */
-        let ep2 = (pow(datum.equatorialRadius, 2.0) - pow(datum.polarRadius, 2.0)) / pow(datum.polarRadius, 2.0)
+        var ξPrime = ξ
+        var ηPrime = η
+        for index in 1...6 {
+            let properIndex = Double(2 * index)
+            ξPrime -= krüger.β[index - 1] * sin(properIndex * ξ) * cosh(properIndex * η)
+            ηPrime -= krüger.β[index - 1] * cos(properIndex * η) * sinh(properIndex * η)
+        }
         
-        /* Precalculate nu2 */
-        let nu2 = ep2 * pow(cos(latitudeInRadians), 2.0)
+        let sinhηPrime = sinh(ηPrime)
+        let sinξPrime = sin(ξPrime)
+        let cosξPrime = cos(ξPrime)
         
-        /* Precalculate N */
-        let N = pow(datum.equatorialRadius, 2.0) / (datum.polarRadius * sqrt(1 + nu2))
+        let τPrime = sinξPrime / sqrt(sinhηPrime*sinhηPrime + cosξPrime*cosξPrime)
         
-        /* Precalculate t */
-        let t = tan(latitudeInRadians)
-        let t2 = t * t
+        var δτi : Double = 1.0
+        var τi : Double = τPrime
+        let e2 = datum.eccentricity * datum.eccentricity
+        while δτi > 1e-12 {
+            let σi = sinh(datum.eccentricity*atanh(datum.eccentricity*τi/sqrt(1+τi*τi)));
+            let τiPrime = τi * sqrt(1+σi*σi) - σi * sqrt(1+τi*τi);
+            δτi = (τPrime - τiPrime)/sqrt(1+τiPrime*τiPrime)
+                * (1 + (1 - e2)*τi*τi) / ((1-e2)*sqrt(1+τi*τi));
+            τi += δτi;
+        }
+        let τ = τi
+        let φ = atan(τ)
         
-        /* Precalculate l */
-        let l = longitudeInRadians - meridian;
+        let centralMeridian = Measurement<UnitAngle>(value: (Double(utm.zone) - 1.0) * 6 - 180.0 + 3.0, unit: .degrees).converted(to: .radians).value
+        let λ = atan2(sinhηPrime, cosξPrime) + centralMeridian
         
-        /* Precalculate coefficients for l**n in the equations below
-         so a normal human being can read the expressions for easting
-         and northing
-         -- l**1 and l**2 have coefficients of 1.0 */
-        let l3coef = 1.0 - t2 + nu2;
-        let l4coef = 5.0 - t2 + 9 * nu2 + 4.0 * (nu2 * nu2)
-        let l5coef = 5.0 - 18.0 * t2 + (t2 * t2) + 14.0 * nu2 - 58.0 * t2 * nu2
-        let l6coef = 61.0 - 58.0 * t2 + (t2 * t2) + 270.0 * nu2 - 330.0 * t2 * nu2
-        let l7coef = 61.0 - 479.0 * t2 + 179.0 * (t2 * t2) - (t2 * t2 * t2)
-        let l8coef = 1385.0 - 3111.0 * t2 + 543.0 * (t2 * t2) - (t2 * t2 * t2)
-        
-        /* Calculate easting (x) */
-        let easting = N * cos(latitudeInRadians) * l + (N / 6.0 * pow(cos(latitudeInRadians), 3.0) * l3coef * pow(l, 3.0)) + (N / 120.0 * pow(cos(latitudeInRadians), 5.0) * l5coef * pow(l, 5.0)) + (N / 5040.0 * pow(cos(latitudeInRadians), 7.0) * l7coef * pow(l, 7.0));
-        
-        /* Calculate northing (y) */
-        let northing = arcLengthFromEquator(atLatitude: coordinates.latitude) + (t / 2.0 * N * pow(cos(latitudeInRadians), 2.0) * pow(l, 2.0)) + (t / 24.0 * N * pow(cos(latitudeInRadians), 4.0) * l4coef * pow(l, 4.0)) + (t / 720.0 * N * pow(cos(latitudeInRadians), 6.0) * l6coef * pow(l, 6.0)) + (t / 40320.0 * N * pow(cos(latitudeInRadians), 8.0) * l8coef * pow(l, 8.0));
-        
-        return UTMPoint(easting: easting, northing: northing, zone: UInt(zone), hemisphere: hemisphere)
-    }
-    
-    private func arcLengthFromEquator(atLatitude latitude: Measurement<UnitAngle>) -> Double {
-        let radiansValue = latitude.converted(to: .radians).value
-        let separatedRatio = (datum.equatorialRadius - datum.polarRadius) / (datum.equatorialRadius + datum.polarRadius)
-        /// αβγδε
-        let α = ((datum.equatorialRadius + datum.polarRadius) / 2.0) * (1.0 + (pow(separatedRatio, 2.0) / 4.0) + (pow(separatedRatio, 4.0) / 64.0))
-        let β = (-3.0 * separatedRatio / 2.0) + (9.0 * pow(separatedRatio, 3.0) / 16.0) + (-3.0 * pow(separatedRatio, 5.0) / 32.0)
-        let γ = (15.0 * pow(separatedRatio, 2.0) / 16.0) + (-15.0 * pow(separatedRatio, 4.0) / 32.0)
-        let δ = (-35.0 * pow(separatedRatio, 3.0) / 48.0) + (105.0 * pow(separatedRatio, 5.0) / 256.0);
-        let ε = (315.0 * pow(separatedRatio, 4.0) / 512.0);
-        
-        /* Now calculate the sum of the series and return */
-        return α * (radiansValue + (β * sin(2.0 * radiansValue)) + (γ * sin(4.0 * radiansValue)) + (δ * sin(6.0 * radiansValue)) + (ε * sin(8.0 * radiansValue)));
-    }
-    
-    private func footprintLatitude(forNorthing northing : Measurement<UnitLength>) -> Measurement<UnitAngle> {
-        let northingInMeters = northing.converted(to: .meters).value
-        /* Precalculate n (Eq. 10.18) */
-        let n = (datum.equatorialRadius - datum.polarRadius) / (datum.equatorialRadius + datum.polarRadius);
-        
-        /* Precalculate alpha_ (Eq. 10.22) */
-        /* (Same as alpha in Eq. 10.17) */
-        let alpha = ((datum.equatorialRadius + datum.polarRadius) / 2.0) * (1 + (pow(n, 2.0) / 4) + (pow(n, 4.0) / 64))
-        
-        /* Precalculate y (Eq. 10.23) */
-        let y = northingInMeters / alpha
-        
-        /* Precalculate beta (Eq. 10.22) */
-        let beta = (3.0 * n / 2.0) + (-27.0 * pow(n, 3.0) / 32.0) + (269.0 * pow(n, 5.0) / 512.0)
-        
-        /* Precalculate gamma (Eq. 10.22) */
-        let gamma = (21.0 * pow(n, 2.0) / 16.0) + (-55.0 * pow(n, 4.0) / 32.0)
-        
-        /* Precalculate delta (Eq. 10.22) */
-        let delta = (151.0 * pow(n, 3.0) / 96.0) + (-417.0 * pow(n, 5.0) / 128.0)
-        
-        /* Precalculate epsilon (Eq. 10.22) */
-        let epsilon = (1097.0 * pow(n, 4.0) / 512.0)
-        
-        /* Now calculate the sum of the series (Eq. 10.21) */
-        let footprintLatitudeInRadians = y + (beta * sin(2.0 * y)) + (gamma * sin(4.0 * y)) + (delta * sin(6.0 * y)) + (epsilon * sin(8.0 * y))
-        
-        return Measurement<UnitAngle>(value: footprintLatitudeInRadians, unit: .radians);
+        return LatLonCoordinate(latitude: Measurement<UnitAngle>(value: φ, unit: .radians), longitude: Measurement<UnitAngle>(value: λ, unit: .radians))
     }
 }
 

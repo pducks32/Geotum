@@ -48,8 +48,8 @@ func formatWithinMessage<T : Dimension>(_ key : String, expected : Measurement<T
 
 class GeotumTests: XCTestCase {
     
-    var baseLatLonError = Measurement<UnitAngle>(value: 1, unit: .degrees)
-    var baseUTMError = Measurement<UnitLength>(value: 1, unit: .meters)
+    var baseLatLonError = Measurement<UnitAngle>(value: 0.5, unit: .degrees)
+    var baseUTMError = Measurement<UnitLength>(value: 0.5, unit: .meters)
     
     func conductTestToUTM(coordinatePair : (Double, Double), toUTM utm : (Double, Double, UInt, UTMPoint.Hemisphere), file : StaticString = #file, line : UInt = #line) {
         let latLonCoordinate = LatLonCoordinate(latiudinalDegrees: coordinatePair.0, longitudinalDegrees: coordinatePair.1)
@@ -79,13 +79,13 @@ class GeotumTests: XCTestCase {
         conductTestBetween(utm: (629134.4, 9761758.1, 17, .southern), coordinatePair: (-2.154994, -79.838766))
     }
     func testConversionInMontserrado_NorthWestern() {
-        conductTestBetween(utm: (350227.2, 713306.6, 29, .northern), coordinatePair: (6.451436, -10.354367))
+        conductTestBetween(utm: (350227.206, 713306.6, 29, .northern), coordinatePair: (6.451436, -10.354367))
     }
     func testConversionInSouthTamworth_SouthEastern() {
         conductTestBetween(utm: (300319, 6556202.6, 56, .southern), coordinatePair: (-31.111072, 150.906144))
     }
     func testConversionInOkinawa_SouthEastern() {
-        conductTestBetween(utm: (431651.1, 2965673.6, 52, .northern), coordinatePair: (26.810878, 128.312261))
+        conductTestBetween(utm: (431651.088, 2965673.550, 52, .northern), coordinatePair: (26.810878, 128.312261))
     }
     
     // Test in norway
@@ -97,7 +97,7 @@ class GeotumTests: XCTestCase {
     }
     
     func testConversionAtEdgeOfNorways() {
-        conductTestBetween(utm: (267000.522, 6775245.720, 32, .northern), coordinatePair: (61.042865, 4.684059))
+        conductTestBetween(utm: (267000.522, 6775245.720, 32, .northern), coordinatePair: (61.042865, 4.68405899))
     }
     
     // Test near equator
@@ -112,7 +112,7 @@ class GeotumTests: XCTestCase {
         let latLonCoordinate = LatLonCoordinate(latiudinalDegrees: latitude, longitudinalDegrees: longitude)
         
         let actualUTMCoordinate = UTMConverter(datum: .wgs84).utmCoordinatesFrom(coordinates: latLonCoordinate)
-        let expectedUTMCoordinate = UTMPoint(easting: 589048.6, northing: 4104627, zone: 10, hemisphere: .northern)
+        let expectedUTMCoordinate = UTMPoint(easting: 589048.564, northing: 4104627.041, zone: 10, hemisphere: .northern)
         
         AssertUTMDistanceIsWithinRange(expectedUTMCoordinate, actualUTMCoordinate, within: baseUTMError)
     }

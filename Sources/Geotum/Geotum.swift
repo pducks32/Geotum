@@ -92,6 +92,54 @@ public struct PlanetaryDatum {
         self.equatorialRadius = equatorialRadius
         self.polarRadius = equatorialRadius * (inverseFlattening - 1) / inverseFlattening
     }
+    
+    /// The ratio between the equatorial radius and the polar radius
+    public var inverseFlattening : Double {
+        return (equatorialRadius - polarRadius) / equatorialRadius
+    }
+    
+    public var eccentricity : Double {
+        return sqrt(inverseFlattening * (2 - inverseFlattening))
+    }
+}
+
+struct KrugerForms {
+    let n1 : Double
+    let n2 : Double
+    let n3 : Double
+    let n4 : Double
+    let n5 : Double
+    let n6 : Double
+    
+    let α : [Double]
+    
+    let flattenedMeridianRadius : Double
+    
+    init(datum : PlanetaryDatum) {
+        let thirdFlattening = datum.inverseFlattening / (2 - datum.inverseFlattening)
+        
+        n1 = thirdFlattening
+        n2 = n1 * n1
+        n3 = n2 * n1
+        n4 = n3 * n1
+        n5 = n4 * n1
+        n6 = n5 * n1
+        
+        let α1 = 1/2*n1 - 2/3*n2 + 5/16*n3 + 41/180*n4 - 127/288*n5 + 7891/37800*n6
+        let α2 = 13/48*n2 - 3/5*n3 + 557/1440*n4 + 281/630*n5 - 1983433/1935360*n6
+        let α3 = 61/240*n3 - 103/140*n4 + 15061/26880*n5 + 167603/181440*n6
+        let α4 = 49561/161280*n4 - 179/168*n5 + 6601661/7257600*n6
+        let α5 = 34729/80640*n5 - 3418889/1995840*n6
+        let α6 = 212378941/319334400*n6
+        α = [α1, α2, α3, α4, α5, α6]
+        
+        let flatteningCoefficient = 1 + n2/4 + n4/64 + n6/256
+        flattenedMeridianRadius = flatteningCoefficient * datum.equatorialRadius / (1 + thirdFlattening)
+    }
+}
+
+public func abs<T : Dimension>(_ measurement : Measurement<T>) -> Measurement<T> {
+    return Measurement<T>(value: abs(measurement.value), unit: measurement.unit)
 }
 
 public class UTMConverter {
@@ -106,15 +154,93 @@ public class UTMConverter {
     }
     
     public func utmCoordinatesFrom(coordinates : LatLonCoordinate) -> UTMPoint {
-        var baseCoordinates = tmCoordinatesFrom(coordinates: coordinates)
-        baseCoordinates.easting = baseCoordinates.easting * 0.9996 + 500000.0
-        baseCoordinates.northing = baseCoordinates.northing * 0.9996
+        let latitude = coordinates.latitude
+        let longitude = coordinates.longitude
         
-        if baseCoordinates.northing < 0 {
-            baseCoordinates.northing += 10000000.0
+        if abs(latitude) > Measurement(value: 84, unit: .degrees) {
+            print("Oops")
+            fatalError("Latitude is out of range")
         }
         
-        return baseCoordinates
+        var zone = UInt(floor((longitude.converted(to: .degrees).value + 180.0) / 6) + 1)
+        
+        let band = latitudeBand(at: latitude)
+        zone = zoneWithNorwayCorrectionIfNeeded(zone: zone, latitudeBand: band, coordinates: coordinates)
+        zone = zoneWithSvalbardCorrectionIfNeeded(zone: zone, latitudeBand: band, coordinates: coordinates)
+        
+        let centralMeridian = Measurement<UnitAngle>(value: (Double(zone - 1) * 6.0) - 180.0 + 3.0, unit: .degrees)//self.centralMeridian(for: zone)
+        let φ = latitude.converted(to: .radians).value
+        let λ = longitude.converted(to: .radians).value - centralMeridian.converted(to: .radians).value
+        
+        let scaleFactor = 0.9996
+        
+        let cosλ = cos(λ)
+        let sinλ = sin(λ)
+        
+        let τ = tan(φ)
+        let σ = sinh(datum.eccentricity * atanh((datum.eccentricity * τ) / sqrt(1 + τ*τ)))
+        let τPrime = τ * sqrt(1 + σ*σ) - σ * sqrt(1 + τ*τ)
+        print(τPrime, datum.eccentricity)
+        let ξPrime = atan2(τPrime, cosλ)
+        let ηPrime = asinh(sinλ / sqrt(τPrime*τPrime + cosλ*cosλ))
+        
+        let krüger = KrugerForms(datum: datum)
+        
+        var ξ = ξPrime
+        var η = ηPrime
+        for index in 1...6 {
+            let properIndex = Double(2 * index)
+            ξ += krüger.α[index - 1] * sin(properIndex * ξPrime) * cosh(properIndex * ηPrime)
+            η += krüger.α[index - 1] * cos(properIndex * ξPrime) * sinh(properIndex * ηPrime)
+        }
+        
+        let x = scaleFactor * krüger.flattenedMeridianRadius * η
+        let y = scaleFactor * krüger.flattenedMeridianRadius * ξ
+        
+        let falseEasting = 500e3
+        let falseNorthing = 10000e3
+        
+        let easting = x + falseEasting
+        var northing = y
+        if (y < 0) {
+            northing += falseNorthing
+        }
+        
+        let hemisphere : UTMPoint.Hemisphere = φ >= 0 ? .northern : .southern
+        return UTMPoint(easting: easting, northing: northing, zone: zone, hemisphere: hemisphere)
+    }
+    
+    private func latitudeBand(at latitude : Measurement<UnitAngle>) -> String {
+        let mgrsBands = ["C", "D", "E", "F", "G", "H", "J", "K", "L", "M", "N", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "X"]
+        let index = Int(floor(latitude.converted(to: .degrees).value / 8 + 10))
+        return mgrsBands[index]
+    }
+    
+    private func zoneWithNorwayCorrectionIfNeeded(zone: UInt, latitudeBand : String, coordinates : LatLonCoordinate) -> UInt {
+        guard zone == 31 else { return zone }
+        guard latitudeBand == "V" else { return zone }
+        guard coordinates.longitude >= Measurement(value: 3, unit: .degrees) else { return zone }
+        
+        return 32
+    }
+    
+    private func zoneWithSvalbardCorrectionIfNeeded(zone : UInt, latitudeBand : String, coordinates : LatLonCoordinate) -> UInt {
+        guard latitudeBand == "X" else { return zone }
+        guard zone == 32 || zone == 34 || zone == 36 else { return zone }
+        
+        let longitiudeDegrees = coordinates.longitude.converted(to: .degrees).value
+        
+        if zone == 32 {
+            return longitiudeDegrees < 9 ? 31 : 33
+        }
+        if zone == 34 {
+            return longitiudeDegrees < 21 ? 31 : 33
+        }
+        if zone == 36 {
+            return longitiudeDegrees < 33 ? 31 : 33
+        }
+        
+        return zone
     }
     
     public func coordinateFrom(utm : UTMPoint) -> LatLonCoordinate {

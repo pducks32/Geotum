@@ -2,17 +2,48 @@ import XCTest
 @testable import Geotum
 
 func AssertLatLonDistanceIsWithinRange(_ expected : LatLonCoordinate, _ actual : LatLonCoordinate, within : Measurement<UnitAngle>, file : StaticString = #file, line : UInt = #line) {
-    let distanceLatitude = actual.latitude.converted(to: .degrees).value - expected.latitude.converted(to: .degrees).value
-    let distanceLongitude = actual.longitude.converted(to: .degrees).value - expected.longitude.converted(to: .degrees).value
-    let withinValue = within.converted(to: .degrees).value
-    XCTAssertLessThanOrEqual(distanceLatitude, withinValue, file: file, line: line)
-    XCTAssertLessThanOrEqual(distanceLongitude, withinValue, file: file, line: line)
+    let distanceLatitude = abs(actual.latitude.converted(to: .degrees).value - expected.latitude.converted(to: .degrees).value)
+    let distanceLongitude = abs(actual.longitude.converted(to: .degrees).value - expected.longitude.converted(to: .degrees).value)
+    let withinValue = abs(within.converted(to: .degrees).value)
+    
+    let latitudeMessage = formatWithinMessage("LatitudeDelta", expected: expected.latitude, actual: actual.latitude, within: within)
+    let longitudeMessage = formatWithinMessage("LongitudeDelta", expected: expected.longitude, actual: actual.longitude, within: within)
+    
+    XCTAssertLessThanOrEqual(distanceLatitude, withinValue, latitudeMessage, file: file, line: line)
+    XCTAssertLessThanOrEqual(distanceLongitude, withinValue, longitudeMessage, file: file, line: line)
 }
+
 func AssertUTMDistanceIsWithinRange(_ expected : UTMPoint, _ actual : UTMPoint, within : Measurement<UnitLength>, file : StaticString = #file, line : UInt = #line) {
     let distance = expected - actual
     let withinValue = within.converted(to: .meters).value
-    XCTAssertLessThanOrEqual(distance.easting.rounded(.toNearestOrAwayFromZero), withinValue, file: file, line: line)
-    XCTAssertLessThanOrEqual(distance.northing.rounded(.toNearestOrAwayFromZero), withinValue, file: file, line: line)
+    
+    let expectedEasting = Measurement<UnitLength>(value: expected.easting, unit: .meters)
+    let actualEasting = Measurement<UnitLength>(value: actual.easting, unit: .meters)
+    let eastingMessage = formatWithinMessage("EastingDelta", expected: expectedEasting, actual: actualEasting, within: within)
+    
+    let expectedNorthing = Measurement<UnitLength>(value: expected.northing, unit: .meters)
+    let actualNorthing = Measurement<UnitLength>(value: actual.northing, unit: .meters)
+    let northingMessage = formatWithinMessage("NorthingDelta", expected: expectedNorthing, actual: actualNorthing, within: within)
+    
+    XCTAssertLessThanOrEqual(distance.easting.rounded(.toNearestOrAwayFromZero), withinValue, eastingMessage, file: file, line: line)
+    XCTAssertLessThanOrEqual(distance.northing.rounded(.toNearestOrAwayFromZero), withinValue, northingMessage, file: file, line: line)
+}
+
+func formatWithinMessage<T : Dimension>(_ key : String, expected : Measurement<T>, actual : Measurement<T>, within : Measurement<T>) -> String {
+    let delta = actual.converted(to: within.unit).value - expected.converted(to: within.unit).value
+    let incorrectDirection = delta.sign
+    let withinDelta = abs(delta) - within.value
+    
+    let deltaMessage : String
+    let withinDeltaUnit = Measurement<T>(value: withinDelta, unit: within.unit)
+    if incorrectDirection == .minus {
+        // Expected too large
+        deltaMessage = "+\(withinDeltaUnit)"
+    } else {
+        // Expected too small
+        deltaMessage = "-\(withinDeltaUnit)"
+    }
+    return "\(key) ≥ \(within): \(expected) is \(deltaMessage) from \(actual)"
 }
 
 class GeotumTests: XCTestCase {
@@ -66,7 +97,7 @@ class GeotumTests: XCTestCase {
     }
     
     func testConversionAtEdgeOfNorways() {
-        conductTestBetween(utm: (267001, 6775246, 32, .northern), coordinatePair: (61.042865, 4.684059))
+        conductTestBetween(utm: (267000.522, 6775245.720, 32, .northern), coordinatePair: (61.042865, 4.684059))
     }
     
     // Test near equator

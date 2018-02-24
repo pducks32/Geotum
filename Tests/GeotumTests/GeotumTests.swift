@@ -52,7 +52,7 @@ class GeotumTests: XCTestCase {
     var baseUTMError = Measurement<UnitLength>(value: 0.5, unit: .meters)
     
     func conductTestToUTM(coordinatePair : (Double, Double), toUTM utm : (Double, Double, UInt, UTMPoint.Hemisphere), file : StaticString = #file, line : UInt = #line) {
-        let latLonCoordinate = LatLonCoordinate(latiudinalDegrees: coordinatePair.0, longitudinalDegrees: coordinatePair.1)
+        let latLonCoordinate = LatLonCoordinate(latitudinalDegrees: coordinatePair.0, longitudinalDegrees: coordinatePair.1)
         
         let actualUTMCoordinate = UTMConverter(datum: .wgs84).utmCoordinatesFrom(coordinates: latLonCoordinate)
         let expectedUTMCoordinate = UTMPoint(easting: utm.0, northing: utm.1, zone: utm.2, hemisphere: utm.3)
@@ -61,7 +61,7 @@ class GeotumTests: XCTestCase {
     }
     
     func conductTestToLatLon(utm : (Double, Double, UInt, UTMPoint.Hemisphere), toCoordinatePair coordinatePair : (Double, Double), file : StaticString = #file, line : UInt = #line) {
-        let expectedLatLonCoordinate = LatLonCoordinate(latiudinalDegrees: coordinatePair.0, longitudinalDegrees: coordinatePair.1)
+        let expectedLatLonCoordinate = LatLonCoordinate(latitudinalDegrees: coordinatePair.0, longitudinalDegrees: coordinatePair.1)
         let utmCoordinate = UTMPoint(easting: utm.0, northing: utm.1, zone: utm.2, hemisphere: utm.3)
         
         let actualLatLonCoordinate = UTMConverter(datum: .wgs84).coordinateFrom(utm: utmCoordinate)
@@ -92,7 +92,7 @@ class GeotumTests: XCTestCase {
     func testEdgeOfNorwaysIsIn32() {
         let coordinatePair : (Double, Double) = (61.042865, 4.684059)
         
-        let actualZone = UTMConverter(datum: .wgs84).utmCoordinatesFrom(coordinates: LatLonCoordinate(latiudinalDegrees: coordinatePair.0, longitudinalDegrees: coordinatePair.1)).zone
+        let actualZone = UTMConverter(datum: .wgs84).utmCoordinatesFrom(coordinates: LatLonCoordinate(latitudinalDegrees: coordinatePair.0, longitudinalDegrees: coordinatePair.1)).zone
         XCTAssertEqual(actualZone, 32)
     }
     
@@ -109,7 +109,7 @@ class GeotumTests: XCTestCase {
     func testLatLonToUTM() {
         let latitude = 37.0837
         let longitude = -121.9981
-        let latLonCoordinate = LatLonCoordinate(latiudinalDegrees: latitude, longitudinalDegrees: longitude)
+        let latLonCoordinate = LatLonCoordinate(latitudinalDegrees: latitude, longitudinalDegrees: longitude)
         
         let actualUTMCoordinate = UTMConverter(datum: .wgs84).utmCoordinatesFrom(coordinates: latLonCoordinate)
         let expectedUTMCoordinate = UTMPoint(easting: 589048.564, northing: 4104627.041, zone: 10, hemisphere: .northern)
@@ -120,7 +120,7 @@ class GeotumTests: XCTestCase {
     func testUTMToLatLon() {
         let utmCoordinate = UTMPoint(easting: 589048.6, northing: 4104627, zone: 10, hemisphere: .northern)
         
-        let expectedCoordinate = LatLonCoordinate(latiudinalDegrees: 37.0837, longitudinalDegrees: -121.9981)
+        let expectedCoordinate = LatLonCoordinate(latitudinalDegrees: 37.0837, longitudinalDegrees: -121.9981)
         let actualCoordinate = UTMConverter(datum: .wgs84).coordinateFrom(utm: utmCoordinate)
         AssertLatLonDistanceIsWithinRange(expectedCoordinate, actualCoordinate, within: baseLatLonError)
     }

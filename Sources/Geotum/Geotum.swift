@@ -57,8 +57,8 @@ public struct LatLonCoordinate {
         self.longitude = longitude
     }
     
-    public init(latiudinalDegrees: Double, longitudinalDegrees: Double) {
-        self.latitude = Measurement(value: latiudinalDegrees, unit: .degrees)
+    public init(latitudinalDegrees: Double, longitudinalDegrees: Double) {
+        self.latitude = Measurement(value: latitudinalDegrees, unit: .degrees)
         self.longitude = Measurement(value: longitudinalDegrees, unit: .degrees)
     }
 }

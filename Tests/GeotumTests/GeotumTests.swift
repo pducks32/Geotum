@@ -25,6 +25,7 @@ func AssertUTMDistanceIsWithinRange(_ expected : UTMPoint, _ actual : UTMPoint, 
     let actualNorthing = Measurement<UnitLength>(value: actual.northing, unit: .meters)
     let northingMessage = formatWithinMessage("NorthingDelta", expected: expectedNorthing, actual: actualNorthing, within: within)
     
+    XCTAssertEqual(expected.hemisphere, actual.hemisphere, file: file, line: line)
     XCTAssertLessThanOrEqual(distance.easting.rounded(.toNearestOrAwayFromZero), withinValue, eastingMessage, file: file, line: line)
     XCTAssertLessThanOrEqual(distance.northing.rounded(.toNearestOrAwayFromZero), withinValue, northingMessage, file: file, line: line)
 }
@@ -118,7 +119,7 @@ class GeotumTests: XCTestCase {
     }
     
     func testUTMToLatLon() {
-        let utmCoordinate = UTMPoint(easting: 589048.6, northing: 4104627, zone: 10, hemisphere: .northern)
+        let utmCoordinate = UTMPoint(easting: 589048.564, northing: 4104627.041, zone: 10, hemisphere: .northern)
         
         let expectedCoordinate = LatLonCoordinate(latiudinalDegrees: 37.0837, longitudinalDegrees: -121.9981)
         let actualCoordinate = UTMConverter(datum: .wgs84).coordinateFrom(utm: utmCoordinate)

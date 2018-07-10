@@ -138,6 +138,37 @@ class GeotumTests: XCTestCase {
         let actualCoordinate = UTMConverter(datum: .wgs84).coordinateFrom(utm: utmCoordinate)
         AssertLatLonDistanceIsWithinRange(expectedCoordinate, actualCoordinate, within: baseLatLonError)
     }
+    
+    func testFromKnownValues() {
+        let other = UTMPoint(easting: 595580.4, northing: 4140456, zone: 10, hemisphere: .northern)
+        let utmCoordinate = UTMPoint(easting: 595698.0115280959, northing: 4140455.984831209, zone: 10, hemisphere: .northern)
+        
+        let expectedCoordinate = LatLonCoordinate(latiudinalDegrees: 37.40595116193, longitudinalDegrees: -121.91869347881)
+        let otherCoordinate = LatLonCoordinate(latiudinalDegrees: 37.40596344394, longitudinalDegrees: -121.92002217154)
+        let actualCoordinate = UTMConverter(datum: .wgs84).coordinateFrom(utm: utmCoordinate)
+        let otherActualCoordinate = UTMConverter(datum: .wgs84).coordinateFrom(utm: other)
+        AssertLatLonDistanceIsWithinRange(expectedCoordinate, actualCoordinate, within: baseLatLonError)
+        AssertLatLonDistanceIsWithinRange(otherCoordinate, otherActualCoordinate, within: baseLatLonError)
+    }
+    
+    func testFromKnownValuesReverse() {
+        let latLonCoordinate = LatLonCoordinate(latiudinalDegrees: 37.4059633951, longitudinalDegrees: -121.9200225769)
+        
+        let actualUTMCoordinate = UTMConverter(datum: .wgs84).utmCoordinatesFrom(coordinates: latLonCoordinate)
+        let expectedUTMCoordinate = UTMPoint(easting: 595580.4, northing: 4140456, zone: 10, hemisphere: .northern)
+        
+        AssertUTMDistanceIsWithinRange(expectedUTMCoordinate, actualUTMCoordinate, within: baseUTMError)
+    }
+    
+    func testThereAndBackAgain() {
+        let latLonCoordinate = LatLonCoordinate(latiudinalDegrees: 37.4059633951, longitudinalDegrees: -121.9200225769)
+        let utmCoordinate = UTMConverter(datum: .wgs84).utmCoordinatesFrom(coordinates: latLonCoordinate)
+        let reversed = UTMConverter(datum: .wgs84).coordinateFrom(utm: utmCoordinate)
+        let reversedUTM = UTMConverter(datum: .wgs84).utmCoordinatesFrom(coordinates: reversed)
+        
+        AssertLatLonDistanceIsWithinRange(latLonCoordinate, reversed, within: baseLatLonError)
+        AssertUTMDistanceIsWithinRange(utmCoordinate, reversedUTM, within: baseUTMError)
+    }
 
 
     static var allTests = [

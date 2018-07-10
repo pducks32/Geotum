@@ -47,10 +47,23 @@ func formatWithinMessage<T : Dimension>(_ key : String, expected : Measurement<T
     return "\(key) ≥ \(within): \(expected) is \(deltaMessage) from \(actual)"
 }
 
+/// UnitAngle.radians.coefficient is a truncated version of 180.0 / Double.pi
+/// this fixes it until Apple resolves the issue in Objective-C Foundation
+@available(iOS 10.0, OSX 10.12, *)
+public func FixUnitAngleConversion() {
+    guard let converter = UnitAngle.radians.converter as? UnitConverterLinear else { return }
+    converter.setValue(180.0 / Double.pi, forKey: "coefficient")
+}
+
 class GeotumTests: XCTestCase {
     
-    var baseLatLonError = Measurement<UnitAngle>(value: 0.5, unit: .degrees)
-    var baseUTMError = Measurement<UnitLength>(value: 0.5, unit: .meters)
+    
+    override func setUp() {
+        FixUnitAngleConversion()
+    }
+    
+    var baseLatLonError = Measurement<UnitAngle>(value: 0.0005, unit: .degrees)
+    var baseUTMError = Measurement<UnitLength>(value: 0.0005, unit: .meters)
     
     func conductTestToUTM(coordinatePair : (Double, Double), toUTM utm : (Double, Double, UInt, UTMPoint.Hemisphere), file : StaticString = #file, line : UInt = #line) {
         let latLonCoordinate = LatLonCoordinate(latiudinalDegrees: coordinatePair.0, longitudinalDegrees: coordinatePair.1)

@@ -177,7 +177,7 @@ public class UTMConverter {
         zone = zoneWithNorwayCorrectionIfNeeded(zone: zone, latitudeBand: band, coordinates: coordinates)
         zone = zoneWithSvalbardCorrectionIfNeeded(zone: zone, latitudeBand: band, coordinates: coordinates)
         
-        let centralMeridian = Measurement<UnitAngle>(value: (Double(zone - 1) * 6.0) - 180.0 + 3.0, unit: .degrees)//self.centralMeridian(for: zone)
+        let centralMeridian = Measurement<UnitAngle>(value: (Double(zone - 1) * 6.0) - 180.0 + 3.0, unit: .degrees)
         let φ = latitude.converted(to: .radians).value
         let λ = longitude.converted(to: .radians).value - centralMeridian.converted(to: .radians).value
         

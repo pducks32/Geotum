@@ -272,7 +272,7 @@ public class UTMConverter {
         for index in 1...6 {
             let properIndex = Double(2 * index)
             ξPrime -= krüger.β[index - 1] * sin(properIndex * ξ) * cosh(properIndex * η)
-            ηPrime -= krüger.β[index - 1] * cos(properIndex * η) * sinh(properIndex * η)
+            ηPrime -= krüger.β[index - 1] * cos(properIndex * ξ) * sinh(properIndex * η)
         }
         
         let sinhηPrime = sinh(ηPrime)

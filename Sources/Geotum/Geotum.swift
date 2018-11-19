@@ -300,6 +300,3 @@ public class UTMConverter {
         return LatLonCoordinate(latitude: Measurement<UnitAngle>(value: φ, unit: .radians), longitude: Measurement<UnitAngle>(value: λ, unit: .radians))
     }
 }
-
-struct Geotum {
-}

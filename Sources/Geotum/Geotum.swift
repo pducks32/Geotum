@@ -189,7 +189,7 @@ public class UTMConverter {
         let τ = tan(φ)
         let σ = sinh(datum.eccentricity * atanh((datum.eccentricity * τ) / sqrt(1 + τ*τ)))
         let τPrime = τ * sqrt(1 + σ*σ) - σ * sqrt(1 + τ*τ)
-        print(τPrime, datum.eccentricity)
+        
         let ξPrime = atan2(τPrime, cosλ)
         let ηPrime = asinh(sinλ / sqrt(τPrime*τPrime + cosλ*cosλ))
         

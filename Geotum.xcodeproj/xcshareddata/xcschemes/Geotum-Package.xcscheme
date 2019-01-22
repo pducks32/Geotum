@@ -20,20 +20,6 @@
                ReferencedContainer = "container:Geotum.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Geotum::Geotum Command Line"
-               BuildableName = "Geotum Command Line"
-               BlueprintName = "Geotum Command Line"
-               ReferencedContainer = "container:Geotum.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

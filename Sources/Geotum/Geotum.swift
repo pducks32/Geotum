@@ -1,4 +1,14 @@
+#if canImport(CoreLocation)
 import CoreLocation
+
+extension CLLocationCoordinate2D {
+    init(_ latlonCoordinate: LatLonCoordinate) {
+        self.init(
+            latitude: latlonCoordinate.latitude.converted(to: .degrees).value,
+            longitude: latlonCoordinate.longitude.converted(to: .degrees).value)
+    }
+}
+#endif
 
 public struct UTMDistance {
     public var easting : Double

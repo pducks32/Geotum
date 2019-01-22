@@ -71,6 +71,14 @@ public struct LatLonCoordinate {
         self.latitude = Measurement(value: latiudinalDegrees, unit: .degrees)
         self.longitude = Measurement(value: longitudinalDegrees, unit: .degrees)
     }
+    
+    mutating public func convert(to newUnit : UnitAngle) {
+        self = self.converted(to: newUnit)
+    }
+    
+    public func converted(to newUnit : UnitAngle) -> LatLonCoordinate {
+        return LatLonCoordinate(latitude: latitude.converted(to: newUnit), longitude: longitude.converted(to: newUnit))
+    }
 }
 
 /// Describes a planet as an ellipsoid

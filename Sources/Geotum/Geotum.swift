@@ -184,7 +184,7 @@ public class UTMConverter {
         let latitude = coordinates.latitude
         let longitude = coordinates.longitude
         
-        if abs(latitude) > Measurement(value: 84, unit: .degrees) {
+        if abs(latitude) > Measurement(value: 84, unit: UnitAngle.degrees) {
             print("Oops")
             fatalError("Latitude is out of range")
         }
@@ -246,7 +246,7 @@ public class UTMConverter {
     private func zoneWithNorwayCorrectionIfNeeded(zone: UInt, latitudeBand : String, coordinates : LatLonCoordinate) -> UInt {
         guard zone == 31 else { return zone }
         guard latitudeBand == "V" else { return zone }
-        guard coordinates.longitude >= Measurement(value: 3, unit: .degrees) else { return zone }
+        guard coordinates.longitude >= Measurement(value: 3, unit: UnitAngle.degrees) else { return zone }
         
         return 32
     }

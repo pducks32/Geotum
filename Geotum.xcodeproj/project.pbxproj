@@ -45,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BA3E963021FFC1B30077D983 /* Geotum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Geotum.h; sourceTree = "<group>"; };
 		"Geotum::Geotum::Product" /* Geotum.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Geotum.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Geotum::GeotumTests::Product" /* GeotumTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = GeotumTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_12 /* GeotumTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeotumTests.swift; sourceTree = "<group>"; };
@@ -97,7 +98,7 @@
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -105,7 +106,6 @@
 				OBJ_10 /* Tests */,
 				OBJ_13 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
@@ -120,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_9 /* Geotum.swift */,
+				BA3E963021FFC1B30077D983 /* Geotum.h */,
 			);
 			name = Geotum;
 			path = Sources/Geotum;
@@ -199,7 +200,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_13 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";

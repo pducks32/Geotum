@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'Geotum'
-    s.version          = '1.4.0'
+    s.version          = '1.4.1'
     s.summary          = 'Convert to/from UTM points for iOS and macOS in Swift.'
     
     s.description      = <<-DESC

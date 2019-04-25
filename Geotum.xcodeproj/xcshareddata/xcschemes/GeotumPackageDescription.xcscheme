@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "9999"
+   LastUpgradeVersion = "1020"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,23 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Geotum::Geotum"
-               BuildableName = "Geotum.framework"
-               BlueprintName = "Geotum"
-               ReferencedContainer = "container:Geotum.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Geotum::GeotumCLI"
-               BuildableName = "GeotumCLI"
-               BlueprintName = "GeotumCLI"
+               BlueprintIdentifier = "Geotum::SwiftPMPackageDescription"
+               BuildableName = "GeotumPackageDescription"
+               BlueprintName = "GeotumPackageDescription"
                ReferencedContainer = "container:Geotum.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -42,16 +28,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Geotum::GeotumTests"
-               BuildableName = "GeotumTests.xctest"
-               BlueprintName = "GeotumTests"
-               ReferencedContainer = "container:Geotum.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <AdditionalOptions>
       </AdditionalOptions>
@@ -69,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "Geotum::Geotum"
-            BuildableName = "Geotum.framework"
-            BlueprintName = "Geotum"
+            BlueprintIdentifier = "Geotum::SwiftPMPackageDescription"
+            BuildableName = "GeotumPackageDescription"
+            BlueprintName = "GeotumPackageDescription"
             ReferencedContainer = "container:Geotum.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -84,6 +60,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "Geotum::SwiftPMPackageDescription"
+            BuildableName = "GeotumPackageDescription"
+            BlueprintName = "GeotumPackageDescription"
+            ReferencedContainer = "container:Geotum.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

@@ -14,20 +14,6 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Geotum::Geotum"
-               BuildableName = "Geotum.framework"
-               BlueprintName = "Geotum"
-               ReferencedContainer = "container:Geotum.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "Geotum::GeotumCLI"
                BuildableName = "GeotumCLI"
                BlueprintName = "GeotumCLI"
@@ -66,15 +52,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "Geotum::Geotum"
-            BuildableName = "Geotum.framework"
-            BlueprintName = "Geotum"
+            BlueprintIdentifier = "Geotum::GeotumCLI"
+            BuildableName = "GeotumCLI"
+            BlueprintName = "GeotumCLI"
             ReferencedContainer = "container:Geotum.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

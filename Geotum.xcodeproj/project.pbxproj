@@ -9,121 +9,793 @@
 /* Begin PBXAggregateTarget section */
 		"Geotum::GeotumPackageTests::ProductTarget" /* GeotumPackageTests */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = OBJ_30 /* Build configuration list for PBXAggregateTarget "GeotumPackageTests" */;
+			buildConfigurationList = OBJ_215 /* Build configuration list for PBXAggregateTarget "GeotumPackageTests" */;
 			buildPhases = (
 			);
 			dependencies = (
-				OBJ_33 /* PBXTargetDependency */,
+				OBJ_218 /* PBXTargetDependency */,
 			);
 			name = GeotumPackageTests;
 			productName = GeotumPackageTests;
 		};
+		"Geotum::geotum::ProductTarget" /* geotum */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = OBJ_302 /* Build configuration list for PBXAggregateTarget "geotum" */;
+			buildPhases = (
+			);
+			dependencies = (
+				OBJ_305 /* PBXTargetDependency */,
+			);
+			name = geotum;
+			productName = geotum;
+		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		OBJ_21 /* Geotum.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* Geotum.swift */; };
-		OBJ_28 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
-		OBJ_39 /* GeotumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* GeotumTests.swift */; };
-		OBJ_41 /* Geotum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Geotum::Geotum::Product" /* Geotum.framework */; };
+		OBJ_133 /* Await.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* Await.swift */; };
+		OBJ_134 /* ByteString.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* ByteString.swift */; };
+		OBJ_135 /* CStringArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* CStringArray.swift */; };
+		OBJ_136 /* CacheableSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* CacheableSequence.swift */; };
+		OBJ_137 /* CollectionAlgorithms.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* CollectionAlgorithms.swift */; };
+		OBJ_138 /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* CollectionExtensions.swift */; };
+		OBJ_139 /* Condition.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* Condition.swift */; };
+		OBJ_140 /* DeltaAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* DeltaAlgorithm.swift */; };
+		OBJ_141 /* DiagnosticsEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* DiagnosticsEngine.swift */; };
+		OBJ_142 /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* DictionaryExtensions.swift */; };
+		OBJ_143 /* DictionaryLiteralExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_29 /* DictionaryLiteralExtensions.swift */; };
+		OBJ_144 /* EditDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* EditDistance.swift */; };
+		OBJ_145 /* FileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_31 /* FileSystem.swift */; };
+		OBJ_146 /* GraphAlgorithms.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_32 /* GraphAlgorithms.swift */; };
+		OBJ_147 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_33 /* JSON.swift */; };
+		OBJ_148 /* JSONMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_34 /* JSONMapper.swift */; };
+		OBJ_149 /* KeyedPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_35 /* KeyedPair.swift */; };
+		OBJ_150 /* LazyCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_36 /* LazyCache.swift */; };
+		OBJ_151 /* Lock.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_37 /* Lock.swift */; };
+		OBJ_152 /* ObjectIdentifierProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_38 /* ObjectIdentifierProtocol.swift */; };
+		OBJ_153 /* OrderedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_39 /* OrderedDictionary.swift */; };
+		OBJ_154 /* OrderedSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_40 /* OrderedSet.swift */; };
+		OBJ_155 /* OutputByteStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_41 /* OutputByteStream.swift */; };
+		OBJ_156 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_42 /* Path.swift */; };
+		OBJ_157 /* PathShims.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_43 /* PathShims.swift */; };
+		OBJ_158 /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_44 /* Process.swift */; };
+		OBJ_159 /* ProcessSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_45 /* ProcessSet.swift */; };
+		OBJ_160 /* RegEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_46 /* RegEx.swift */; };
+		OBJ_161 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* Result.swift */; };
+		OBJ_162 /* SHA256.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_48 /* SHA256.swift */; };
+		OBJ_163 /* SortedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_49 /* SortedArray.swift */; };
+		OBJ_164 /* StringConversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_50 /* StringConversions.swift */; };
+		OBJ_165 /* SynchronizedQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_51 /* SynchronizedQueue.swift */; };
+		OBJ_166 /* TemporaryFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_52 /* TemporaryFile.swift */; };
+		OBJ_167 /* TerminalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_53 /* TerminalController.swift */; };
+		OBJ_168 /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_54 /* Thread.swift */; };
+		OBJ_169 /* Tuple.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_55 /* Tuple.swift */; };
+		OBJ_170 /* misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_56 /* misc.swift */; };
+		OBJ_172 /* POSIX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftPM::POSIX::Product" /* POSIX.framework */; };
+		OBJ_173 /* SPMLibc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftPM::SPMLibc::Product" /* SPMLibc.framework */; };
+		OBJ_174 /* clibc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftPM::clibc::Product" /* clibc.framework */; };
+		OBJ_186 /* Geotum.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Geotum.swift */; };
+		OBJ_193 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* main.swift */; };
+		OBJ_195 /* SPMUtility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftPM::SPMUtility::Product" /* SPMUtility.framework */; };
+		OBJ_196 /* Basic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftPM::Basic::Product" /* Basic.framework */; };
+		OBJ_197 /* POSIX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftPM::POSIX::Product" /* POSIX.framework */; };
+		OBJ_198 /* SPMLibc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftPM::SPMLibc::Product" /* SPMLibc.framework */; };
+		OBJ_199 /* clibc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftPM::clibc::Product" /* clibc.framework */; };
+		OBJ_200 /* Geotum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Geotum::Geotum::Product" /* Geotum.framework */; };
+		OBJ_213 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
+		OBJ_224 /* GeotumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* GeotumTests.swift */; };
+		OBJ_226 /* Geotum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Geotum::Geotum::Product" /* Geotum.framework */; };
+		OBJ_232 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_60 /* Error.swift */; };
+		OBJ_233 /* chdir.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_61 /* chdir.swift */; };
+		OBJ_234 /* env.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_62 /* env.swift */; };
+		OBJ_235 /* exit.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_63 /* exit.swift */; };
+		OBJ_236 /* getcwd.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_64 /* getcwd.swift */; };
+		OBJ_237 /* isatty.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_65 /* isatty.swift */; };
+		OBJ_238 /* readdir.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_66 /* readdir.swift */; };
+		OBJ_239 /* realpath.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_67 /* realpath.swift */; };
+		OBJ_240 /* rename.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_68 /* rename.swift */; };
+		OBJ_241 /* stat.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_69 /* stat.swift */; };
+		OBJ_242 /* usleep.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_70 /* usleep.swift */; };
+		OBJ_244 /* SPMLibc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftPM::SPMLibc::Product" /* SPMLibc.framework */; };
+		OBJ_245 /* clibc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftPM::clibc::Product" /* clibc.framework */; };
+		OBJ_252 /* libc.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_77 /* libc.swift */; };
+		OBJ_254 /* clibc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftPM::clibc::Product" /* clibc.framework */; };
+		OBJ_260 /* ArgumentParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_79 /* ArgumentParser.swift */; };
+		OBJ_261 /* ArgumentParserShellCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_80 /* ArgumentParserShellCompletion.swift */; };
+		OBJ_262 /* BuildFlags.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_81 /* BuildFlags.swift */; };
+		OBJ_263 /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_82 /* CollectionExtensions.swift */; };
+		OBJ_264 /* Diagnostics.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_83 /* Diagnostics.swift */; };
+		OBJ_265 /* FSWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_84 /* FSWatch.swift */; };
+		OBJ_266 /* Git.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_85 /* Git.swift */; };
+		OBJ_267 /* InterruptHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_86 /* InterruptHandler.swift */; };
+		OBJ_268 /* PkgConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_87 /* PkgConfig.swift */; };
+		OBJ_269 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_88 /* Platform.swift */; };
+		OBJ_270 /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_89 /* Process.swift */; };
+		OBJ_271 /* ProgressAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_90 /* ProgressAnimation.swift */; };
+		OBJ_272 /* SimplePersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_91 /* SimplePersistence.swift */; };
+		OBJ_273 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_92 /* StringExtensions.swift */; };
+		OBJ_274 /* StringMangling.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_93 /* StringMangling.swift */; };
+		OBJ_275 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_94 /* URL.swift */; };
+		OBJ_276 /* Verbosity.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_95 /* Verbosity.swift */; };
+		OBJ_277 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_96 /* Version.swift */; };
+		OBJ_278 /* Versioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_97 /* Versioning.swift */; };
+		OBJ_279 /* misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_98 /* misc.swift */; };
+		OBJ_281 /* Basic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftPM::Basic::Product" /* Basic.framework */; };
+		OBJ_282 /* POSIX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftPM::POSIX::Product" /* POSIX.framework */; };
+		OBJ_283 /* SPMLibc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftPM::SPMLibc::Product" /* SPMLibc.framework */; };
+		OBJ_284 /* clibc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftPM::clibc::Product" /* clibc.framework */; };
+		OBJ_294 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_114 /* Package.swift */; };
+		OBJ_299 /* libc.c in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_105 /* libc.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		BA1EB11621F7D4E600378952 /* PBXContainerItemProxy */ = {
+		BA1ABD02227235B000F0E3F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "SwiftPM::SPMUtility";
+			remoteInfo = SPMUtility;
+		};
+		BA1ABD03227235B000F0E3F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "SwiftPM::Basic";
+			remoteInfo = Basic;
+		};
+		BA1ABD04227235B000F0E3F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "SwiftPM::POSIX";
+			remoteInfo = POSIX;
+		};
+		BA1ABD05227235B000F0E3F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "SwiftPM::SPMLibc";
+			remoteInfo = SPMLibc;
+		};
+		BA1ABD06227235B000F0E3F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "SwiftPM::clibc";
+			remoteInfo = clibc;
+		};
+		BA1ABD07227235B000F0E3F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "SwiftPM::clibc";
+			remoteInfo = clibc;
+		};
+		BA1ABD08227235B000F0E3F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "SwiftPM::SPMLibc";
+			remoteInfo = SPMLibc;
+		};
+		BA1ABD09227235B000F0E3F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "SwiftPM::clibc";
+			remoteInfo = clibc;
+		};
+		BA1ABD0A227235B000F0E3F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "SwiftPM::POSIX";
+			remoteInfo = POSIX;
+		};
+		BA1ABD0B227235B000F0E3F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "SwiftPM::SPMLibc";
+			remoteInfo = SPMLibc;
+		};
+		BA1ABD0C227235B000F0E3F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "SwiftPM::clibc";
+			remoteInfo = clibc;
+		};
+		BA1ABD0D227235B000F0E3F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "SwiftPM::Basic";
+			remoteInfo = Basic;
+		};
+		BA1ABD0E227235B000F0E3F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "SwiftPM::POSIX";
+			remoteInfo = POSIX;
+		};
+		BA1ABD0F227235B000F0E3F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "SwiftPM::SPMLibc";
+			remoteInfo = SPMLibc;
+		};
+		BA1ABD10227235B000F0E3F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "SwiftPM::clibc";
+			remoteInfo = clibc;
+		};
+		BA1ABD11227235B000F0E3F4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Geotum::Geotum";
 			remoteInfo = Geotum;
 		};
-		BA1EB11721F7D4E700378952 /* PBXContainerItemProxy */ = {
+		BA1ABD12227235B000F0E3F4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "Geotum::GeotumTests";
-			remoteInfo = GeotumTests;
+			remoteGlobalIDString = "Geotum::Geotum";
+			remoteInfo = Geotum;
+		};
+		BA1ABD1322723F8500F0E3F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "Geotum::GeotumCLI";
+			remoteInfo = GeotumCLI;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		BA3E963021FFC1B30077D983 /* Geotum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Geotum.h; sourceTree = "<group>"; };
-		"Geotum::Geotum::Product" /* Geotum.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Geotum.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"Geotum::GeotumTests::Product" /* GeotumTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = GeotumTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		OBJ_12 /* GeotumTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeotumTests.swift; sourceTree = "<group>"; };
+		"Geotum::Geotum::Product" /* Geotum.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Geotum.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"Geotum::GeotumCLI::Product" /* GeotumCLI */ = {isa = PBXFileReference; lastKnownFileType = text; path = GeotumCLI; sourceTree = BUILT_PRODUCTS_DIR; };
+		"Geotum::GeotumTests::Product" /* GeotumTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = GeotumTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		OBJ_10 /* Geotum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geotum.swift; sourceTree = "<group>"; };
+		OBJ_105 /* libc.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = libc.c; sourceTree = "<group>"; };
+		OBJ_107 /* clibc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = clibc.h; sourceTree = "<group>"; };
+		OBJ_108 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; name = module.modulemap; path = "/Users/pducks/Code/iOS/Geotum/.build/checkouts/swift-package-manager/Sources/clibc/include/module.modulemap"; sourceTree = "<group>"; };
+		OBJ_114 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/pducks/Code/iOS/Geotum/.build/checkouts/swift-package-manager/Package.swift"; sourceTree = "<group>"; };
+		OBJ_12 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		OBJ_124 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		OBJ_125 /* Geotum.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Geotum.podspec; sourceTree = "<group>"; };
+		OBJ_126 /* LICENSE.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LICENSE.hpp; sourceTree = "<group>"; };
+		OBJ_127 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		OBJ_15 /* GeotumTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeotumTests.swift; sourceTree = "<group>"; };
+		OBJ_19 /* Await.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Await.swift; sourceTree = "<group>"; };
+		OBJ_20 /* ByteString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByteString.swift; sourceTree = "<group>"; };
+		OBJ_21 /* CStringArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CStringArray.swift; sourceTree = "<group>"; };
+		OBJ_22 /* CacheableSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheableSequence.swift; sourceTree = "<group>"; };
+		OBJ_23 /* CollectionAlgorithms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionAlgorithms.swift; sourceTree = "<group>"; };
+		OBJ_24 /* CollectionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExtensions.swift; sourceTree = "<group>"; };
+		OBJ_25 /* Condition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Condition.swift; sourceTree = "<group>"; };
+		OBJ_26 /* DeltaAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeltaAlgorithm.swift; sourceTree = "<group>"; };
+		OBJ_27 /* DiagnosticsEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosticsEngine.swift; sourceTree = "<group>"; };
+		OBJ_28 /* DictionaryExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExtensions.swift; sourceTree = "<group>"; };
+		OBJ_29 /* DictionaryLiteralExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryLiteralExtensions.swift; sourceTree = "<group>"; };
+		OBJ_30 /* EditDistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDistance.swift; sourceTree = "<group>"; };
+		OBJ_31 /* FileSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSystem.swift; sourceTree = "<group>"; };
+		OBJ_32 /* GraphAlgorithms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphAlgorithms.swift; sourceTree = "<group>"; };
+		OBJ_33 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
+		OBJ_34 /* JSONMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONMapper.swift; sourceTree = "<group>"; };
+		OBJ_35 /* KeyedPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedPair.swift; sourceTree = "<group>"; };
+		OBJ_36 /* LazyCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyCache.swift; sourceTree = "<group>"; };
+		OBJ_37 /* Lock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lock.swift; sourceTree = "<group>"; };
+		OBJ_38 /* ObjectIdentifierProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectIdentifierProtocol.swift; sourceTree = "<group>"; };
+		OBJ_39 /* OrderedDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedDictionary.swift; sourceTree = "<group>"; };
+		OBJ_40 /* OrderedSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedSet.swift; sourceTree = "<group>"; };
+		OBJ_41 /* OutputByteStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputByteStream.swift; sourceTree = "<group>"; };
+		OBJ_42 /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
+		OBJ_43 /* PathShims.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathShims.swift; sourceTree = "<group>"; };
+		OBJ_44 /* Process.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Process.swift; sourceTree = "<group>"; };
+		OBJ_45 /* ProcessSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessSet.swift; sourceTree = "<group>"; };
+		OBJ_46 /* RegEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegEx.swift; sourceTree = "<group>"; };
+		OBJ_47 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		OBJ_48 /* SHA256.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHA256.swift; sourceTree = "<group>"; };
+		OBJ_49 /* SortedArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortedArray.swift; sourceTree = "<group>"; };
+		OBJ_50 /* StringConversions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConversions.swift; sourceTree = "<group>"; };
+		OBJ_51 /* SynchronizedQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizedQueue.swift; sourceTree = "<group>"; };
+		OBJ_52 /* TemporaryFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporaryFile.swift; sourceTree = "<group>"; };
+		OBJ_53 /* TerminalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalController.swift; sourceTree = "<group>"; };
+		OBJ_54 /* Thread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
+		OBJ_55 /* Tuple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tuple.swift; sourceTree = "<group>"; };
+		OBJ_56 /* misc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = misc.swift; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
-		OBJ_9 /* Geotum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geotum.swift; sourceTree = "<group>"; };
+		OBJ_60 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		OBJ_61 /* chdir.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chdir.swift; sourceTree = "<group>"; };
+		OBJ_62 /* env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = env.swift; sourceTree = "<group>"; };
+		OBJ_63 /* exit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = exit.swift; sourceTree = "<group>"; };
+		OBJ_64 /* getcwd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getcwd.swift; sourceTree = "<group>"; };
+		OBJ_65 /* isatty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = isatty.swift; sourceTree = "<group>"; };
+		OBJ_66 /* readdir.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = readdir.swift; sourceTree = "<group>"; };
+		OBJ_67 /* realpath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = realpath.swift; sourceTree = "<group>"; };
+		OBJ_68 /* rename.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rename.swift; sourceTree = "<group>"; };
+		OBJ_69 /* stat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stat.swift; sourceTree = "<group>"; };
+		OBJ_70 /* usleep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = usleep.swift; sourceTree = "<group>"; };
+		OBJ_77 /* libc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = libc.swift; sourceTree = "<group>"; };
+		OBJ_79 /* ArgumentParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgumentParser.swift; sourceTree = "<group>"; };
+		OBJ_80 /* ArgumentParserShellCompletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgumentParserShellCompletion.swift; sourceTree = "<group>"; };
+		OBJ_81 /* BuildFlags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildFlags.swift; sourceTree = "<group>"; };
+		OBJ_82 /* CollectionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExtensions.swift; sourceTree = "<group>"; };
+		OBJ_83 /* Diagnostics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diagnostics.swift; sourceTree = "<group>"; };
+		OBJ_84 /* FSWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSWatch.swift; sourceTree = "<group>"; };
+		OBJ_85 /* Git.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Git.swift; sourceTree = "<group>"; };
+		OBJ_86 /* InterruptHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterruptHandler.swift; sourceTree = "<group>"; };
+		OBJ_87 /* PkgConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PkgConfig.swift; sourceTree = "<group>"; };
+		OBJ_88 /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
+		OBJ_89 /* Process.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Process.swift; sourceTree = "<group>"; };
+		OBJ_9 /* Geotum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Geotum.h; sourceTree = "<group>"; };
+		OBJ_90 /* ProgressAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressAnimation.swift; sourceTree = "<group>"; };
+		OBJ_91 /* SimplePersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePersistence.swift; sourceTree = "<group>"; };
+		OBJ_92 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		OBJ_93 /* StringMangling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringMangling.swift; sourceTree = "<group>"; };
+		OBJ_94 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
+		OBJ_95 /* Verbosity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Verbosity.swift; sourceTree = "<group>"; };
+		OBJ_96 /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
+		OBJ_97 /* Versioning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Versioning.swift; sourceTree = "<group>"; };
+		OBJ_98 /* misc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = misc.swift; sourceTree = "<group>"; };
+		"SwiftPM::Basic::Product" /* Basic.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Basic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"SwiftPM::POSIX::Product" /* POSIX.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = POSIX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"SwiftPM::SPMLibc::Product" /* SPMLibc.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SPMLibc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"SwiftPM::SPMUtility::Product" /* SPMUtility.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SPMUtility.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"SwiftPM::clibc::Product" /* clibc.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = clibc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		OBJ_22 /* Frameworks */ = {
+		OBJ_171 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_172 /* POSIX.framework in Frameworks */,
+				OBJ_173 /* SPMLibc.framework in Frameworks */,
+				OBJ_174 /* clibc.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_187 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_40 /* Frameworks */ = {
+		OBJ_194 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_41 /* Geotum.framework in Frameworks */,
+				OBJ_195 /* SPMUtility.framework in Frameworks */,
+				OBJ_196 /* Basic.framework in Frameworks */,
+				OBJ_197 /* POSIX.framework in Frameworks */,
+				OBJ_198 /* SPMLibc.framework in Frameworks */,
+				OBJ_199 /* clibc.framework in Frameworks */,
+				OBJ_200 /* Geotum.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_225 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_226 /* Geotum.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_243 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_244 /* SPMLibc.framework in Frameworks */,
+				OBJ_245 /* clibc.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_253 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_254 /* clibc.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_280 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_281 /* Basic.framework in Frameworks */,
+				OBJ_282 /* POSIX.framework in Frameworks */,
+				OBJ_283 /* SPMLibc.framework in Frameworks */,
+				OBJ_284 /* clibc.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_300 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		OBJ_10 /* Tests */ = {
+		OBJ_100 /* TestSupport */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_11 /* GeotumTests */,
+			);
+			name = TestSupport;
+			path = ".build/checkouts/swift-package-manager/Sources/TestSupport";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_101 /* TestSupportExecutable */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = TestSupportExecutable;
+			path = ".build/checkouts/swift-package-manager/Sources/TestSupportExecutable";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_102 /* Workspace */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Workspace;
+			path = ".build/checkouts/swift-package-manager/Sources/Workspace";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_103 /* Xcodeproj */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Xcodeproj;
+			path = ".build/checkouts/swift-package-manager/Sources/Xcodeproj";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_104 /* clibc */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_105 /* libc.c */,
+				OBJ_106 /* include */,
+			);
+			name = clibc;
+			path = ".build/checkouts/swift-package-manager/Sources/clibc";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_106 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_107 /* clibc.h */,
+				OBJ_108 /* module.modulemap */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		OBJ_109 /* swift-build */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "swift-build";
+			path = ".build/checkouts/swift-package-manager/Sources/swift-build";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_11 /* GeotumCLI */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_12 /* main.swift */,
+			);
+			name = GeotumCLI;
+			path = Sources/CLI;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_110 /* swift-package */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "swift-package";
+			path = ".build/checkouts/swift-package-manager/Sources/swift-package";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_111 /* swift-run */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "swift-run";
+			path = ".build/checkouts/swift-package-manager/Sources/swift-run";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_112 /* swift-test */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "swift-test";
+			path = ".build/checkouts/swift-package-manager/Sources/swift-test";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_113 /* swiftpm-xctest-helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "swiftpm-xctest-helper";
+			path = ".build/checkouts/swift-package-manager/Sources/swiftpm-xctest-helper";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_115 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				"Geotum::Geotum::Product" /* Geotum.framework */,
+				"SwiftPM::SPMLibc::Product" /* SPMLibc.framework */,
+				"SwiftPM::POSIX::Product" /* POSIX.framework */,
+				"Geotum::GeotumTests::Product" /* GeotumTests.xctest */,
+				"SwiftPM::clibc::Product" /* clibc.framework */,
+				"SwiftPM::SPMUtility::Product" /* SPMUtility.framework */,
+				"SwiftPM::Basic::Product" /* Basic.framework */,
+				"Geotum::GeotumCLI::Product" /* GeotumCLI */,
+			);
+			name = Products;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		OBJ_13 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_14 /* GeotumTests */,
 			);
 			name = Tests;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_11 /* GeotumTests */ = {
+		OBJ_14 /* GeotumTests */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_12 /* GeotumTests.swift */,
+				OBJ_15 /* GeotumTests.swift */,
 			);
 			name = GeotumTests;
 			path = Tests/GeotumTests;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_13 /* Products */ = {
+		OBJ_16 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
-				"Geotum::GeotumTests::Product" /* GeotumTests.xctest */,
-				"Geotum::Geotum::Product" /* Geotum.framework */,
+				OBJ_17 /* SwiftPM */,
 			);
-			name = Products;
-			sourceTree = BUILT_PRODUCTS_DIR;
+			name = Dependencies;
+			sourceTree = "<group>";
 		};
-		OBJ_5 = {
+		OBJ_17 /* SwiftPM */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_18 /* Basic */,
+				OBJ_57 /* Build */,
+				OBJ_58 /* Commands */,
+				OBJ_59 /* POSIX */,
+				OBJ_71 /* PackageDescription4 */,
+				OBJ_72 /* PackageGraph */,
+				OBJ_73 /* PackageLoading */,
+				OBJ_74 /* PackageModel */,
+				OBJ_75 /* SPMLLBuild */,
+				OBJ_76 /* SPMLibc */,
+				OBJ_78 /* SPMUtility */,
+				OBJ_99 /* SourceControl */,
+				OBJ_100 /* TestSupport */,
+				OBJ_101 /* TestSupportExecutable */,
+				OBJ_102 /* Workspace */,
+				OBJ_103 /* Xcodeproj */,
+				OBJ_104 /* clibc */,
+				OBJ_109 /* swift-build */,
+				OBJ_110 /* swift-package */,
+				OBJ_111 /* swift-run */,
+				OBJ_112 /* swift-test */,
+				OBJ_113 /* swiftpm-xctest-helper */,
+				OBJ_114 /* Package.swift */,
+			);
+			name = SwiftPM;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_18 /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_19 /* Await.swift */,
+				OBJ_20 /* ByteString.swift */,
+				OBJ_21 /* CStringArray.swift */,
+				OBJ_22 /* CacheableSequence.swift */,
+				OBJ_23 /* CollectionAlgorithms.swift */,
+				OBJ_24 /* CollectionExtensions.swift */,
+				OBJ_25 /* Condition.swift */,
+				OBJ_26 /* DeltaAlgorithm.swift */,
+				OBJ_27 /* DiagnosticsEngine.swift */,
+				OBJ_28 /* DictionaryExtensions.swift */,
+				OBJ_29 /* DictionaryLiteralExtensions.swift */,
+				OBJ_30 /* EditDistance.swift */,
+				OBJ_31 /* FileSystem.swift */,
+				OBJ_32 /* GraphAlgorithms.swift */,
+				OBJ_33 /* JSON.swift */,
+				OBJ_34 /* JSONMapper.swift */,
+				OBJ_35 /* KeyedPair.swift */,
+				OBJ_36 /* LazyCache.swift */,
+				OBJ_37 /* Lock.swift */,
+				OBJ_38 /* ObjectIdentifierProtocol.swift */,
+				OBJ_39 /* OrderedDictionary.swift */,
+				OBJ_40 /* OrderedSet.swift */,
+				OBJ_41 /* OutputByteStream.swift */,
+				OBJ_42 /* Path.swift */,
+				OBJ_43 /* PathShims.swift */,
+				OBJ_44 /* Process.swift */,
+				OBJ_45 /* ProcessSet.swift */,
+				OBJ_46 /* RegEx.swift */,
+				OBJ_47 /* Result.swift */,
+				OBJ_48 /* SHA256.swift */,
+				OBJ_49 /* SortedArray.swift */,
+				OBJ_50 /* StringConversions.swift */,
+				OBJ_51 /* SynchronizedQueue.swift */,
+				OBJ_52 /* TemporaryFile.swift */,
+				OBJ_53 /* TerminalController.swift */,
+				OBJ_54 /* Thread.swift */,
+				OBJ_55 /* Tuple.swift */,
+				OBJ_56 /* misc.swift */,
+			);
+			name = Basic;
+			path = ".build/checkouts/swift-package-manager/Sources/Basic";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_5 /*  */ = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
 				OBJ_7 /* Sources */,
-				OBJ_10 /* Tests */,
-				OBJ_13 /* Products */,
+				OBJ_13 /* Tests */,
+				OBJ_16 /* Dependencies */,
+				OBJ_115 /* Products */,
+				OBJ_124 /* LICENSE */,
+				OBJ_125 /* Geotum.podspec */,
+				OBJ_126 /* LICENSE.hpp */,
+				OBJ_127 /* README.md */,
 			);
+			name = "";
 			sourceTree = "<group>";
+		};
+		OBJ_57 /* Build */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Build;
+			path = ".build/checkouts/swift-package-manager/Sources/Build";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_58 /* Commands */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Commands;
+			path = ".build/checkouts/swift-package-manager/Sources/Commands";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_59 /* POSIX */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_60 /* Error.swift */,
+				OBJ_61 /* chdir.swift */,
+				OBJ_62 /* env.swift */,
+				OBJ_63 /* exit.swift */,
+				OBJ_64 /* getcwd.swift */,
+				OBJ_65 /* isatty.swift */,
+				OBJ_66 /* readdir.swift */,
+				OBJ_67 /* realpath.swift */,
+				OBJ_68 /* rename.swift */,
+				OBJ_69 /* stat.swift */,
+				OBJ_70 /* usleep.swift */,
+			);
+			name = POSIX;
+			path = ".build/checkouts/swift-package-manager/Sources/POSIX";
+			sourceTree = SOURCE_ROOT;
 		};
 		OBJ_7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				OBJ_8 /* Geotum */,
+				OBJ_11 /* GeotumCLI */,
 			);
 			name = Sources;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_71 /* PackageDescription4 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = PackageDescription4;
+			path = ".build/checkouts/swift-package-manager/Sources/PackageDescription4";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_72 /* PackageGraph */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = PackageGraph;
+			path = ".build/checkouts/swift-package-manager/Sources/PackageGraph";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_73 /* PackageLoading */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = PackageLoading;
+			path = ".build/checkouts/swift-package-manager/Sources/PackageLoading";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_74 /* PackageModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = PackageModel;
+			path = ".build/checkouts/swift-package-manager/Sources/PackageModel";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_75 /* SPMLLBuild */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = SPMLLBuild;
+			path = ".build/checkouts/swift-package-manager/Sources/SPMLLBuild";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_76 /* SPMLibc */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_77 /* libc.swift */,
+			);
+			name = SPMLibc;
+			path = ".build/checkouts/swift-package-manager/Sources/SPMLibc";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_78 /* SPMUtility */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_79 /* ArgumentParser.swift */,
+				OBJ_80 /* ArgumentParserShellCompletion.swift */,
+				OBJ_81 /* BuildFlags.swift */,
+				OBJ_82 /* CollectionExtensions.swift */,
+				OBJ_83 /* Diagnostics.swift */,
+				OBJ_84 /* FSWatch.swift */,
+				OBJ_85 /* Git.swift */,
+				OBJ_86 /* InterruptHandler.swift */,
+				OBJ_87 /* PkgConfig.swift */,
+				OBJ_88 /* Platform.swift */,
+				OBJ_89 /* Process.swift */,
+				OBJ_90 /* ProgressAnimation.swift */,
+				OBJ_91 /* SimplePersistence.swift */,
+				OBJ_92 /* StringExtensions.swift */,
+				OBJ_93 /* StringMangling.swift */,
+				OBJ_94 /* URL.swift */,
+				OBJ_95 /* Verbosity.swift */,
+				OBJ_96 /* Version.swift */,
+				OBJ_97 /* Versioning.swift */,
+				OBJ_98 /* misc.swift */,
+			);
+			name = SPMUtility;
+			path = ".build/checkouts/swift-package-manager/Sources/SPMUtility";
 			sourceTree = SOURCE_ROOT;
 		};
 		OBJ_8 /* Geotum */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_9 /* Geotum.swift */,
-				BA3E963021FFC1B30077D983 /* Geotum.h */,
+				OBJ_9 /* Geotum.h */,
+				OBJ_10 /* Geotum.swift */,
 			);
 			name = Geotum;
 			path = Sources/Geotum;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_99 /* SourceControl */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = SourceControl;
+			path = ".build/checkouts/swift-package-manager/Sources/SourceControl";
 			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
@@ -131,10 +803,10 @@
 /* Begin PBXNativeTarget section */
 		"Geotum::Geotum" /* Geotum */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_17 /* Build configuration list for PBXNativeTarget "Geotum" */;
+			buildConfigurationList = OBJ_182 /* Build configuration list for PBXNativeTarget "Geotum" */;
 			buildPhases = (
-				OBJ_20 /* Sources */,
-				OBJ_22 /* Frameworks */,
+				OBJ_185 /* Sources */,
+				OBJ_187 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -145,17 +817,40 @@
 			productReference = "Geotum::Geotum::Product" /* Geotum.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		"Geotum::GeotumTests" /* GeotumTests */ = {
+		"Geotum::GeotumCLI" /* GeotumCLI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_35 /* Build configuration list for PBXNativeTarget "GeotumTests" */;
+			buildConfigurationList = OBJ_189 /* Build configuration list for PBXNativeTarget "GeotumCLI" */;
 			buildPhases = (
-				OBJ_38 /* Sources */,
-				OBJ_40 /* Frameworks */,
+				OBJ_192 /* Sources */,
+				OBJ_194 /* Frameworks */,
+				BA1ABD1422723F9500F0E3F4 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				OBJ_42 /* PBXTargetDependency */,
+				OBJ_201 /* PBXTargetDependency */,
+				OBJ_203 /* PBXTargetDependency */,
+				OBJ_204 /* PBXTargetDependency */,
+				OBJ_205 /* PBXTargetDependency */,
+				OBJ_206 /* PBXTargetDependency */,
+				OBJ_207 /* PBXTargetDependency */,
+			);
+			name = GeotumCLI;
+			productName = GeotumCLI;
+			productReference = "Geotum::GeotumCLI::Product" /* GeotumCLI */;
+			productType = "com.apple.product-type.tool";
+		};
+		"Geotum::GeotumTests" /* GeotumTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_220 /* Build configuration list for PBXNativeTarget "GeotumTests" */;
+			buildPhases = (
+				OBJ_223 /* Sources */,
+				OBJ_225 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				OBJ_227 /* PBXTargetDependency */,
 			);
 			name = GeotumTests;
 			productName = GeotumTests;
@@ -164,9 +859,9 @@
 		};
 		"Geotum::SwiftPMPackageDescription" /* GeotumPackageDescription */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_24 /* Build configuration list for PBXNativeTarget "GeotumPackageDescription" */;
+			buildConfigurationList = OBJ_209 /* Build configuration list for PBXNativeTarget "GeotumPackageDescription" */;
 			buildPhases = (
-				OBJ_27 /* Sources */,
+				OBJ_212 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -176,153 +871,893 @@
 			productName = GeotumPackageDescription;
 			productType = "com.apple.product-type.framework";
 		};
+		"SwiftPM::Basic" /* Basic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_129 /* Build configuration list for PBXNativeTarget "Basic" */;
+			buildPhases = (
+				OBJ_132 /* Sources */,
+				OBJ_171 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				OBJ_175 /* PBXTargetDependency */,
+				OBJ_177 /* PBXTargetDependency */,
+				OBJ_179 /* PBXTargetDependency */,
+			);
+			name = Basic;
+			productName = Basic;
+			productReference = "SwiftPM::Basic::Product" /* Basic.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		"SwiftPM::POSIX" /* POSIX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_228 /* Build configuration list for PBXNativeTarget "POSIX" */;
+			buildPhases = (
+				OBJ_231 /* Sources */,
+				OBJ_243 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				OBJ_246 /* PBXTargetDependency */,
+				OBJ_247 /* PBXTargetDependency */,
+			);
+			name = POSIX;
+			productName = POSIX;
+			productReference = "SwiftPM::POSIX::Product" /* POSIX.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		"SwiftPM::SPMLibc" /* SPMLibc */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_248 /* Build configuration list for PBXNativeTarget "SPMLibc" */;
+			buildPhases = (
+				OBJ_251 /* Sources */,
+				OBJ_253 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				OBJ_255 /* PBXTargetDependency */,
+			);
+			name = SPMLibc;
+			productName = SPMLibc;
+			productReference = "SwiftPM::SPMLibc::Product" /* SPMLibc.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		"SwiftPM::SPMUtility" /* SPMUtility */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_256 /* Build configuration list for PBXNativeTarget "SPMUtility" */;
+			buildPhases = (
+				OBJ_259 /* Sources */,
+				OBJ_280 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				OBJ_285 /* PBXTargetDependency */,
+				OBJ_286 /* PBXTargetDependency */,
+				OBJ_287 /* PBXTargetDependency */,
+				OBJ_288 /* PBXTargetDependency */,
+			);
+			name = SPMUtility;
+			productName = SPMUtility;
+			productReference = "SwiftPM::SPMUtility::Product" /* SPMUtility.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		"SwiftPM::SwiftPMPackageDescription" /* SwiftPMPackageDescription */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_290 /* Build configuration list for PBXNativeTarget "SwiftPMPackageDescription" */;
+			buildPhases = (
+				OBJ_293 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftPMPackageDescription;
+			productName = SwiftPMPackageDescription;
+			productType = "com.apple.product-type.framework";
+		};
+		"SwiftPM::clibc" /* clibc */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_295 /* Build configuration list for PBXNativeTarget "clibc" */;
+			buildPhases = (
+				OBJ_298 /* Sources */,
+				OBJ_300 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = clibc;
+			productName = clibc;
+			productReference = "SwiftPM::clibc::Product" /* clibc.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		OBJ_1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 9999;
 				LastUpgradeCheck = 9999;
-				TargetAttributes = {
-					"Geotum::Geotum" = {
-						DevelopmentTeam = 9J372XJCQE;
-						LastSwiftMigration = 1010;
-					};
-					"Geotum::GeotumTests" = {
-						LastSwiftMigration = 1010;
-					};
-				};
 			};
 			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "Geotum" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
-			mainGroup = OBJ_5;
-			productRefGroup = OBJ_13 /* Products */;
+			mainGroup = OBJ_5 /*  */;
+			productRefGroup = OBJ_115 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				"SwiftPM::Basic" /* Basic */,
 				"Geotum::Geotum" /* Geotum */,
+				"Geotum::GeotumCLI" /* GeotumCLI */,
 				"Geotum::SwiftPMPackageDescription" /* GeotumPackageDescription */,
 				"Geotum::GeotumPackageTests::ProductTarget" /* GeotumPackageTests */,
 				"Geotum::GeotumTests" /* GeotumTests */,
+				"SwiftPM::POSIX" /* POSIX */,
+				"SwiftPM::SPMLibc" /* SPMLibc */,
+				"SwiftPM::SPMUtility" /* SPMUtility */,
+				"SwiftPM::SwiftPMPackageDescription" /* SwiftPMPackageDescription */,
+				"SwiftPM::clibc" /* clibc */,
+				"Geotum::geotum::ProductTarget" /* geotum */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		BA1ABD1422723F9500F0E3F4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nBINARIES_FOLDER=/usr/local/bin\nswift build --configuration release\nGEOTUM_EXECUTABLE=$(swift build --configuration release --show-bin-path)/geotum\ninstall $GEOTUM_EXECUTABLE $BINARIES_FOLDER\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		OBJ_20 /* Sources */ = {
+		OBJ_132 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_21 /* Geotum.swift in Sources */,
+				OBJ_133 /* Await.swift in Sources */,
+				OBJ_134 /* ByteString.swift in Sources */,
+				OBJ_135 /* CStringArray.swift in Sources */,
+				OBJ_136 /* CacheableSequence.swift in Sources */,
+				OBJ_137 /* CollectionAlgorithms.swift in Sources */,
+				OBJ_138 /* CollectionExtensions.swift in Sources */,
+				OBJ_139 /* Condition.swift in Sources */,
+				OBJ_140 /* DeltaAlgorithm.swift in Sources */,
+				OBJ_141 /* DiagnosticsEngine.swift in Sources */,
+				OBJ_142 /* DictionaryExtensions.swift in Sources */,
+				OBJ_143 /* DictionaryLiteralExtensions.swift in Sources */,
+				OBJ_144 /* EditDistance.swift in Sources */,
+				OBJ_145 /* FileSystem.swift in Sources */,
+				OBJ_146 /* GraphAlgorithms.swift in Sources */,
+				OBJ_147 /* JSON.swift in Sources */,
+				OBJ_148 /* JSONMapper.swift in Sources */,
+				OBJ_149 /* KeyedPair.swift in Sources */,
+				OBJ_150 /* LazyCache.swift in Sources */,
+				OBJ_151 /* Lock.swift in Sources */,
+				OBJ_152 /* ObjectIdentifierProtocol.swift in Sources */,
+				OBJ_153 /* OrderedDictionary.swift in Sources */,
+				OBJ_154 /* OrderedSet.swift in Sources */,
+				OBJ_155 /* OutputByteStream.swift in Sources */,
+				OBJ_156 /* Path.swift in Sources */,
+				OBJ_157 /* PathShims.swift in Sources */,
+				OBJ_158 /* Process.swift in Sources */,
+				OBJ_159 /* ProcessSet.swift in Sources */,
+				OBJ_160 /* RegEx.swift in Sources */,
+				OBJ_161 /* Result.swift in Sources */,
+				OBJ_162 /* SHA256.swift in Sources */,
+				OBJ_163 /* SortedArray.swift in Sources */,
+				OBJ_164 /* StringConversions.swift in Sources */,
+				OBJ_165 /* SynchronizedQueue.swift in Sources */,
+				OBJ_166 /* TemporaryFile.swift in Sources */,
+				OBJ_167 /* TerminalController.swift in Sources */,
+				OBJ_168 /* Thread.swift in Sources */,
+				OBJ_169 /* Tuple.swift in Sources */,
+				OBJ_170 /* misc.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_27 /* Sources */ = {
+		OBJ_185 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_28 /* Package.swift in Sources */,
+				OBJ_186 /* Geotum.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_38 /* Sources */ = {
+		OBJ_192 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_39 /* GeotumTests.swift in Sources */,
+				OBJ_193 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_212 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_213 /* Package.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_223 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_224 /* GeotumTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_231 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_232 /* Error.swift in Sources */,
+				OBJ_233 /* chdir.swift in Sources */,
+				OBJ_234 /* env.swift in Sources */,
+				OBJ_235 /* exit.swift in Sources */,
+				OBJ_236 /* getcwd.swift in Sources */,
+				OBJ_237 /* isatty.swift in Sources */,
+				OBJ_238 /* readdir.swift in Sources */,
+				OBJ_239 /* realpath.swift in Sources */,
+				OBJ_240 /* rename.swift in Sources */,
+				OBJ_241 /* stat.swift in Sources */,
+				OBJ_242 /* usleep.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_251 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_252 /* libc.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_259 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_260 /* ArgumentParser.swift in Sources */,
+				OBJ_261 /* ArgumentParserShellCompletion.swift in Sources */,
+				OBJ_262 /* BuildFlags.swift in Sources */,
+				OBJ_263 /* CollectionExtensions.swift in Sources */,
+				OBJ_264 /* Diagnostics.swift in Sources */,
+				OBJ_265 /* FSWatch.swift in Sources */,
+				OBJ_266 /* Git.swift in Sources */,
+				OBJ_267 /* InterruptHandler.swift in Sources */,
+				OBJ_268 /* PkgConfig.swift in Sources */,
+				OBJ_269 /* Platform.swift in Sources */,
+				OBJ_270 /* Process.swift in Sources */,
+				OBJ_271 /* ProgressAnimation.swift in Sources */,
+				OBJ_272 /* SimplePersistence.swift in Sources */,
+				OBJ_273 /* StringExtensions.swift in Sources */,
+				OBJ_274 /* StringMangling.swift in Sources */,
+				OBJ_275 /* URL.swift in Sources */,
+				OBJ_276 /* Verbosity.swift in Sources */,
+				OBJ_277 /* Version.swift in Sources */,
+				OBJ_278 /* Versioning.swift in Sources */,
+				OBJ_279 /* misc.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_293 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_294 /* Package.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_298 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_299 /* libc.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		OBJ_33 /* PBXTargetDependency */ = {
+		OBJ_175 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = "Geotum::GeotumTests" /* GeotumTests */;
-			targetProxy = BA1EB11721F7D4E700378952 /* PBXContainerItemProxy */;
+			target = "SwiftPM::POSIX" /* POSIX */;
+			targetProxy = BA1ABD04227235B000F0E3F4 /* PBXContainerItemProxy */;
 		};
-		OBJ_42 /* PBXTargetDependency */ = {
+		OBJ_177 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "SwiftPM::SPMLibc" /* SPMLibc */;
+			targetProxy = BA1ABD08227235B000F0E3F4 /* PBXContainerItemProxy */;
+		};
+		OBJ_179 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "SwiftPM::clibc" /* clibc */;
+			targetProxy = BA1ABD09227235B000F0E3F4 /* PBXContainerItemProxy */;
+		};
+		OBJ_201 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "SwiftPM::SPMUtility" /* SPMUtility */;
+			targetProxy = BA1ABD02227235B000F0E3F4 /* PBXContainerItemProxy */;
+		};
+		OBJ_203 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "SwiftPM::Basic" /* Basic */;
+			targetProxy = BA1ABD0D227235B000F0E3F4 /* PBXContainerItemProxy */;
+		};
+		OBJ_204 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "SwiftPM::POSIX" /* POSIX */;
+			targetProxy = BA1ABD0E227235B000F0E3F4 /* PBXContainerItemProxy */;
+		};
+		OBJ_205 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "SwiftPM::SPMLibc" /* SPMLibc */;
+			targetProxy = BA1ABD0F227235B000F0E3F4 /* PBXContainerItemProxy */;
+		};
+		OBJ_206 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "SwiftPM::clibc" /* clibc */;
+			targetProxy = BA1ABD10227235B000F0E3F4 /* PBXContainerItemProxy */;
+		};
+		OBJ_207 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Geotum::Geotum" /* Geotum */;
-			targetProxy = BA1EB11621F7D4E600378952 /* PBXContainerItemProxy */;
+			targetProxy = BA1ABD11227235B000F0E3F4 /* PBXContainerItemProxy */;
+		};
+		OBJ_218 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "Geotum::GeotumTests" /* GeotumTests */;
+			targetProxy = "Geotum::GeotumTests" /* GeotumTests */;
+		};
+		OBJ_227 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "Geotum::Geotum" /* Geotum */;
+			targetProxy = BA1ABD12227235B000F0E3F4 /* PBXContainerItemProxy */;
+		};
+		OBJ_246 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "SwiftPM::SPMLibc" /* SPMLibc */;
+			targetProxy = BA1ABD05227235B000F0E3F4 /* PBXContainerItemProxy */;
+		};
+		OBJ_247 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "SwiftPM::clibc" /* clibc */;
+			targetProxy = BA1ABD07227235B000F0E3F4 /* PBXContainerItemProxy */;
+		};
+		OBJ_255 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "SwiftPM::clibc" /* clibc */;
+			targetProxy = BA1ABD06227235B000F0E3F4 /* PBXContainerItemProxy */;
+		};
+		OBJ_285 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "SwiftPM::Basic" /* Basic */;
+			targetProxy = BA1ABD03227235B000F0E3F4 /* PBXContainerItemProxy */;
+		};
+		OBJ_286 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "SwiftPM::POSIX" /* POSIX */;
+			targetProxy = BA1ABD0A227235B000F0E3F4 /* PBXContainerItemProxy */;
+		};
+		OBJ_287 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "SwiftPM::SPMLibc" /* SPMLibc */;
+			targetProxy = BA1ABD0B227235B000F0E3F4 /* PBXContainerItemProxy */;
+		};
+		OBJ_288 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "SwiftPM::clibc" /* clibc */;
+			targetProxy = BA1ABD0C227235B000F0E3F4 /* PBXContainerItemProxy */;
+		};
+		OBJ_305 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "Geotum::GeotumCLI" /* GeotumCLI */;
+			targetProxy = BA1ABD1322723F8500F0E3F4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		OBJ_18 /* Debug */ = {
+		OBJ_130 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				DEVELOPMENT_TEAM = 9J372XJCQE;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = Geotum.xcodeproj/Geotum_Info.plist;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include",
+				);
+				INFOPLIST_FILE = Geotum.xcodeproj/Basic_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = Geotum;
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include/module.modulemap";
+				PRODUCT_BUNDLE_IDENTIFIER = Basic;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 4.2;
-				TARGET_NAME = Geotum;
+				TARGET_NAME = Basic;
 			};
 			name = Debug;
 		};
-		OBJ_19 /* Release */ = {
+		OBJ_131 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				DEVELOPMENT_TEAM = 9J372XJCQE;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = Geotum.xcodeproj/Geotum_Info.plist;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include",
+				);
+				INFOPLIST_FILE = Geotum.xcodeproj/Basic_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = Geotum;
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include/module.modulemap";
+				PRODUCT_BUNDLE_IDENTIFIER = Basic;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 4.2;
-				TARGET_NAME = Geotum;
+				TARGET_NAME = Basic;
 			};
 			name = Release;
 		};
-		OBJ_25 /* Debug */ = {
+		OBJ_183 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk";
-				SWIFT_VERSION = 4.0;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Geotum.xcodeproj/Geotum_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = Geotum;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = Geotum;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
-		OBJ_26 /* Release */ = {
+		OBJ_184 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Geotum.xcodeproj/Geotum_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = Geotum;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = Geotum;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		OBJ_190 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include",
+				);
+				INFOPLIST_FILE = Geotum.xcodeproj/GeotumCLI_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx @executable_path";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include/module.modulemap";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
+				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = GeotumCLI;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		OBJ_191 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include",
+				);
+				INFOPLIST_FILE = Geotum.xcodeproj/GeotumCLI_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx @executable_path";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include/module.modulemap";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
+				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = GeotumCLI;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		OBJ_210 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk";
-				SWIFT_VERSION = 4.0;
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		OBJ_211 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		OBJ_216 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		OBJ_217 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		OBJ_221 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Geotum.xcodeproj/GeotumTests_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = GeotumTests;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		OBJ_222 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Geotum.xcodeproj/GeotumTests_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = GeotumTests;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		OBJ_229 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include",
+				);
+				INFOPLIST_FILE = Geotum.xcodeproj/POSIX_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include/module.modulemap";
+				PRODUCT_BUNDLE_IDENTIFIER = POSIX;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 4.2;
+				TARGET_NAME = POSIX;
+			};
+			name = Debug;
+		};
+		OBJ_230 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include",
+				);
+				INFOPLIST_FILE = Geotum.xcodeproj/POSIX_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include/module.modulemap";
+				PRODUCT_BUNDLE_IDENTIFIER = POSIX;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 4.2;
+				TARGET_NAME = POSIX;
+			};
+			name = Release;
+		};
+		OBJ_249 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include",
+				);
+				INFOPLIST_FILE = Geotum.xcodeproj/SPMLibc_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include/module.modulemap";
+				PRODUCT_BUNDLE_IDENTIFIER = SPMLibc;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 4.2;
+				TARGET_NAME = SPMLibc;
+			};
+			name = Debug;
+		};
+		OBJ_250 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include",
+				);
+				INFOPLIST_FILE = Geotum.xcodeproj/SPMLibc_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include/module.modulemap";
+				PRODUCT_BUNDLE_IDENTIFIER = SPMLibc;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 4.2;
+				TARGET_NAME = SPMLibc;
+			};
+			name = Release;
+		};
+		OBJ_257 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include",
+				);
+				INFOPLIST_FILE = Geotum.xcodeproj/SPMUtility_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include/module.modulemap";
+				PRODUCT_BUNDLE_IDENTIFIER = SPMUtility;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 4.2;
+				TARGET_NAME = SPMUtility;
+			};
+			name = Debug;
+		};
+		OBJ_258 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include",
+				);
+				INFOPLIST_FILE = Geotum.xcodeproj/SPMUtility_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include/module.modulemap";
+				PRODUCT_BUNDLE_IDENTIFIER = SPMUtility;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 4.2;
+				TARGET_NAME = SPMUtility;
+			};
+			name = Release;
+		};
+		OBJ_291 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 4.2 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		OBJ_292 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 4.2 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+		OBJ_296 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = NO;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include",
+				);
+				INFOPLIST_FILE = Geotum.xcodeproj/clibc_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = clibc;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				TARGET_NAME = clibc;
+			};
+			name = Debug;
+		};
+		OBJ_297 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = NO;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/.build/checkouts/swift-package-manager/Sources/clibc/include",
+				);
+				INFOPLIST_FILE = Geotum.xcodeproj/clibc_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = clibc;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				TARGET_NAME = clibc;
 			};
 			name = Release;
 		};
@@ -337,8 +1772,9 @@
 				ENABLE_NS_ASSERTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
 					"$(inherited)",
+					"SWIFT_PACKAGE=1",
+					"DEBUG=1",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = YES;
@@ -346,63 +1782,21 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "SWIFT_PACKAGE DEBUG";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE DEBUG";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				USE_HEADERMAP = NO;
 			};
 			name = Debug;
 		};
-		OBJ_31 /* Debug */ = {
+		OBJ_303 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 			};
 			name = Debug;
 		};
-		OBJ_32 /* Release */ = {
+		OBJ_304 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-			};
-			name = Release;
-		};
-		OBJ_36 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = Geotum.xcodeproj/GeotumTests_Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
-				OTHER_CFLAGS = "$(inherited)";
-				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_VERSION = 4.2;
-				TARGET_NAME = GeotumTests;
-			};
-			name = Debug;
-		};
-		OBJ_37 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = Geotum.xcodeproj/GeotumTests_Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
-				OTHER_CFLAGS = "$(inherited)";
-				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_VERSION = 4.2;
-				TARGET_NAME = GeotumTests;
 			};
 			name = Release;
 		};
@@ -415,12 +1809,16 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"SWIFT_PACKAGE=1",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_SWIFT_FLAGS = "-DXcode";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SWIFT_PACKAGE;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				USE_HEADERMAP = NO;
 			};
@@ -429,11 +1827,29 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		OBJ_17 /* Build configuration list for PBXNativeTarget "Geotum" */ = {
+		OBJ_129 /* Build configuration list for PBXNativeTarget "Basic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_18 /* Debug */,
-				OBJ_19 /* Release */,
+				OBJ_130 /* Debug */,
+				OBJ_131 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_182 /* Build configuration list for PBXNativeTarget "Geotum" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_183 /* Debug */,
+				OBJ_184 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_189 /* Build configuration list for PBXNativeTarget "GeotumCLI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_190 /* Debug */,
+				OBJ_191 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -447,29 +1863,83 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_24 /* Build configuration list for PBXNativeTarget "GeotumPackageDescription" */ = {
+		OBJ_209 /* Build configuration list for PBXNativeTarget "GeotumPackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_25 /* Debug */,
-				OBJ_26 /* Release */,
+				OBJ_210 /* Debug */,
+				OBJ_211 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_30 /* Build configuration list for PBXAggregateTarget "GeotumPackageTests" */ = {
+		OBJ_215 /* Build configuration list for PBXAggregateTarget "GeotumPackageTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_31 /* Debug */,
-				OBJ_32 /* Release */,
+				OBJ_216 /* Debug */,
+				OBJ_217 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_35 /* Build configuration list for PBXNativeTarget "GeotumTests" */ = {
+		OBJ_220 /* Build configuration list for PBXNativeTarget "GeotumTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_36 /* Debug */,
-				OBJ_37 /* Release */,
+				OBJ_221 /* Debug */,
+				OBJ_222 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_228 /* Build configuration list for PBXNativeTarget "POSIX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_229 /* Debug */,
+				OBJ_230 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_248 /* Build configuration list for PBXNativeTarget "SPMLibc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_249 /* Debug */,
+				OBJ_250 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_256 /* Build configuration list for PBXNativeTarget "SPMUtility" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_257 /* Debug */,
+				OBJ_258 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_290 /* Build configuration list for PBXNativeTarget "SwiftPMPackageDescription" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_291 /* Debug */,
+				OBJ_292 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_295 /* Build configuration list for PBXNativeTarget "clibc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_296 /* Debug */,
+				OBJ_297 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_302 /* Build configuration list for PBXAggregateTarget "geotum" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_303 /* Debug */,
+				OBJ_304 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
